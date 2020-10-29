@@ -1,0 +1,130 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Tue Sep 08 08:40:48 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                  ISR_VEC       code   0x000004    program   0x00006a
+                MAIN_PROG       code   0x000100    program   0x00017e
+.config_2007_BUILD/DEFAULT/PRODUCTION/LAB 5.O       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/PRODUCTION/LAB 5.O       code   0x002008    program   0x000002
+                  GPR_VAR      udata   0x000020       data   0x00000c
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x000038      
+                            0x000100    0x0001be      
+                            0x002007    0x002008      
+            249 out of 8455 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    CEROS   0x000138    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+              CONFIG_FLAG   0x000143    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                CONFIG_IO   0x00018d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            CONFIG_TIMER0   0x000151    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            CONFIG_TIMER1   0x00015e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            CONFIG_TIMER2   0x00016c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    DELAY   0x0001ae    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+               DISPLAY_D1   0x00017d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+               DISPLAY_D2   0x000182    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+               DISPLAY_GE   0x000179    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                FUE_TIMR0   0x000015    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                FUE_TIMR1   0x00001c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                FUE_TIMR2   0x000023    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+             INCREMENT10S   0x000131    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            INCREMENTUNOS   0x00012c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                      ISR   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                     LOOP   0x00010f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                 PISHLEDS   0x000114    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                      POP   0x00000f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                     PUSH   0x000004    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  SEV_SEG   0x000027    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  SHOWOFF   0x000118    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   SHOWON   0x00011b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  TIMER1S   0x00013b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                TIMER1_2S   0x000124    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   TOGGLE   0x000187    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  TOGGLE2   0x00011e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TOG_0   0x00018b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   TOG_00   0x000122    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TOG_1   0x000189    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   TOG_11   0x000120    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                     VAP1   0x000140    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                     VAP2   0x000129    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    CONT1   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    CONT2   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                CONTADOR1   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                CONTADOR2   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                 CONTDE_4   0x000027       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    CONTF   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  NIBBLEH   0x000028       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  NIBBLEL   0x000029       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+              STATUS_TEMP   0x00002b       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TEMP1   0x000025       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TEMP2   0x000026       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   W_TEMP   0x00002a       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     PUSH   0x000004    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                      ISR   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                      POP   0x00000f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                FUE_TIMR0   0x000015    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                FUE_TIMR1   0x00001c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                FUE_TIMR2   0x000023    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  SEV_SEG   0x000027    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                     LOOP   0x00010f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                 PISHLEDS   0x000114    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  SHOWOFF   0x000118    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   SHOWON   0x00011b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  TOGGLE2   0x00011e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   TOG_11   0x000120    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   TOG_00   0x000122    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                TIMER1_2S   0x000124    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                     VAP2   0x000129    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            INCREMENTUNOS   0x00012c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+             INCREMENT10S   0x000131    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    CEROS   0x000138    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  TIMER1S   0x00013b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                     VAP1   0x000140    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+              CONFIG_FLAG   0x000143    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            CONFIG_TIMER0   0x000151    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            CONFIG_TIMER1   0x00015e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+            CONFIG_TIMER2   0x00016c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+               DISPLAY_GE   0x000179    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+               DISPLAY_D1   0x00017d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+               DISPLAY_D2   0x000182    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   TOGGLE   0x000187    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TOG_1   0x000189    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TOG_0   0x00018b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                CONFIG_IO   0x00018d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    DELAY   0x0001ae    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    CONTF   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    CONT1   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    CONT2   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                CONTADOR1   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                CONTADOR2   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TEMP1   0x000025       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                    TEMP2   0x000026       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                 CONTDE_4   0x000027       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  NIBBLEH   0x000028       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                  NIBBLEL   0x000029       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+                   W_TEMP   0x00002a       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+              STATUS_TEMP   0x00002b       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Laboratorio 5.X\lab 5.asm
+
+

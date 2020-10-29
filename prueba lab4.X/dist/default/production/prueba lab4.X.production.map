@@ -1,0 +1,96 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Mon Sep 07 23:23:35 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                 ISR_VECT       code   0x000004    program   0x000048
+                MAIN_PROG       code   0x000100    program   0x0000e6
+.config_2007_BUILD/DEFAULT/PRODUCTION/PRUEBAL       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/PRODUCTION/PRUEBAL       code   0x002008    program   0x000002
+                  GPR_VAR      udata   0x000020       data   0x00000a
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x000027      
+                            0x000100    0x000172      
+                            0x002007    0x002008      
+            156 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+         CONFIG_INTERRUPT   0x00016f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                CONFIG_IO   0x000141    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+              CONFIG_TMR0   0x000162    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                  DEC_VAR   0x00011a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                DISPLAY_0   0x000131    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                DISPLAY_1   0x00013a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                  INC_VAR   0x000112    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                      ISR   0x000007    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                     LOOP   0x000108    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    LUZPB   0x000127    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                      POP   0x000011    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                     PUSH   0x000004    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    RPSET   0x00012a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                 TABLA_7S   0x000016    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    TMRS1   0x000122    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+          _MAIN_PROG_0117   0x000117    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+          _MAIN_PROG_011F   0x00011f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+          _MAIN_PROG_012D   0x00012d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    CONT1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                   CONT1S   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    CONTA   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                 CONTADOR   0x000025       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    CONTB   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                   CONTOR   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+              STATUS_TEMP   0x000027       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    TEMP1   0x000028       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    TEMP2   0x000029       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                   W_TEMP   0x000026       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     PUSH   0x000004    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                      ISR   0x000007    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                      POP   0x000011    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                 TABLA_7S   0x000016    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                     LOOP   0x000108    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                  INC_VAR   0x000112    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+          _MAIN_PROG_0117   0x000117    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                  DEC_VAR   0x00011a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+          _MAIN_PROG_011F   0x00011f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    TMRS1   0x000122    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    LUZPB   0x000127    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    RPSET   0x00012a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+          _MAIN_PROG_012D   0x00012d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                DISPLAY_0   0x000131    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                DISPLAY_1   0x00013a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                CONFIG_IO   0x000141    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+              CONFIG_TMR0   0x000162    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+         CONFIG_INTERRUPT   0x00016f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    CONT1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    CONTA   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    CONTB   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                   CONTOR   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                   CONT1S   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                 CONTADOR   0x000025       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                   W_TEMP   0x000026       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+              STATUS_TEMP   0x000027       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    TEMP1   0x000028       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+                    TEMP2   0x000029       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\prueba lab4.X\pruebalab 4.asm
+
+

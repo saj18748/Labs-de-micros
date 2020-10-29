@@ -1,0 +1,1800 @@
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;******************************************************************************
+                      00002 ;                                                                             *
+                      00003 ;     Filaname:     proyecto 1 -> Proyecto 1.asm                              *
+                      00004 ;     Date         25 /08/2020                                                *
+                      00005 ;     File version: v.2                                                       *
+                      00006 ;     author :       Yefry Sajquiy - 18748                                    *
+                      00007 ;     ompany;        UVG                                                      *
+                      00008 ;     Description:   proyecto 1. Reloj                                        *
+                      00009 ;                                                                             *
+                      00010 ;******************************************************************************
+                      00011 
+                      00012 ; CONFIGURACION DEL PIC 16F887
+                      00013     
+                      00014 #include "p16f887.inc"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Nov 22 2017
+                      00005 ;  MPASM PIC16F887 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2017 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00810         LIST
+                      00015 ; CONFIG1
+                      00016 ; __config 0xE0F1
+Warning[205]: Found directive in column 1. (__CONFIG)
+2007   20F4           00017 __CONFIG _CONFIG1, _FOSC_INTRC_NOCLKOUT & _WDTE_OFF & _PWRTE_OFF & _MCLRE_ON & _CP_OFF & _CPD_OFF & _BOR
+                            EN_OFF & _IESO_OFF & _FCMEN_OFF & _LVP_OFF
+                      00018 ; CONFIG2
+                      00019 ; __config 0xFFFF
+Warning[205]: Found directive in column 1. (__CONFIG)
+2008   3FFF           00020 __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
+                      00021     
+                      00022 ;------------------------- DECLARACION DE VARIABLES ---------------------------
+                      00023 
+Warning[207]: Found label after column 1. (GPR_VAR)
+                      00024     GPR_VAR UDATA
+                      00025  
+Warning[207]: Found label after column 1. (AÑO)
+0000                  00026     AÑO             RES 1
+Warning[207]: Found label after column 1. (ALARMA_ON_BAN)
+0001                  00027     ALARMA_ON_BAN   RES 1
+                      00028    
+Warning[207]: Found label after column 1. (BANDERA_A)
+0002                  00029     BANDERA_A       RES 1
+Warning[207]: Found label after column 1. (BANDERA_B)
+0003                  00030     BANDERA_B       RES 1
+Warning[207]: Found label after column 1. (BANDERA_C)
+0004                  00031     BANDERA_C       RES 1
+Warning[207]: Found label after column 1. (BANDERA_D)
+0005                  00032     BANDERA_D       RES 1
+Warning[207]: Found label after column 1. (BANDERA_ES_1)
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0006                  00033     BANDERA_ES_1    RES 1
+Warning[207]: Found label after column 1. (BANDERA_ES_2)
+0007                  00034     BANDERA_ES_2    RES 1
+Warning[207]: Found label after column 1. (BANDERA_ES_3)
+0008                  00035     BANDERA_ES_3    RES 1
+Warning[207]: Found label after column 1. (BANDERA_FECHA)
+0009                  00036     BANDERA_FECHA   RES 1
+                      00037  
+                      00038             
+Warning[207]: Found label after column 1. (CONT_1S)
+000A                  00039     CONT_1S         RES 1
+Warning[207]: Found label after column 1. (CONT_60S)
+000B                  00040     CONT_60S        RES 1
+Warning[207]: Found label after column 1. (CONT_500MS)
+000C                  00041     CONT_500MS      RES 1
+Warning[207]: Found label after column 1. (CONT1)
+000D                  00042     CONT1           RES 1
+Warning[207]: Found label after column 1. (CONT2)
+000E                  00043     CONT2           RES 1
+Warning[207]: Found label after column 1. (CONT_ALARMA)
+000F                  00044     CONT_ALARMA    RES 1
+                      00045             
+Warning[207]: Found label after column 1. (DELAY_1)
+0010                  00046     DELAY_1         RES 1
+Warning[207]: Found label after column 1. (DIA_UNI)
+0011                  00047     DIA_UNI         RES 1
+Warning[207]: Found label after column 1. (DIA_DEC)
+0012                  00048     DIA_DEC         RES 1
+Warning[207]: Found label after column 1. (DISPLAY_1)
+0013                  00049     DISPLAY_1       RES 1
+Warning[207]: Found label after column 1. (DISPLAY_2)
+0014                  00050     DISPLAY_2       RES 1
+Warning[207]: Found label after column 1. (DISPLAY_3)
+0015                  00051     DISPLAY_3       RES 1
+Warning[207]: Found label after column 1. (DISPLAY_4)
+0016                  00052     DISPLAY_4       RES 1
+Warning[207]: Found label after column 1. (DIA_U_MAX)
+0017                  00053     DIA_U_MAX       RES 1
+Warning[207]: Found label after column 1. (DIA_D_MAX)
+0018                  00054     DIA_D_MAX       RES 1
+                      00055             
+Warning[207]: Found label after column 1. (HORA_U)
+0019                  00056     HORA_U          RES 1
+Warning[207]: Found label after column 1. (HORA_D)
+001A                  00057     HORA_D          RES 1
+Warning[207]: Found label after column 1. (HORA24)
+001B                  00058     HORA24          RES 1
+Warning[207]: Found label after column 1. (HORA_U_ALARM)
+001C                  00059     HORA_U_ALARM    RES 1
+Warning[207]: Found label after column 1. (HORA_D_ALARM)
+001D                  00060     HORA_D_ALARM    RES 1
+                      00061             
+Warning[207]: Found label after column 1. (INTER_LED)
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+001E                  00062     INTER_LED       RES 1 
+                      00063             
+Warning[207]: Found label after column 1. (MIN_U)
+001F                  00064     MIN_U           RES 1
+Warning[207]: Found label after column 1. (MIN_D)
+0020                  00065     MIN_D           RES 1
+Warning[207]: Found label after column 1. (MES)
+0021                  00066     MES             RES 1
+Warning[207]: Found label after column 1. (MES_U)
+0022                  00067     MES_U           RES 1
+Warning[207]: Found label after column 1. (MES_D)
+0023                  00068     MES_D           RES 1
+Warning[207]: Found label after column 1. (MES12)
+0024                  00069     MES12           RES 1    
+Warning[207]: Found label after column 1. (MIN_U_ALARM)
+0025                  00070     MIN_U_ALARM     RES 1
+Warning[207]: Found label after column 1. (MIN_D_ALARM)
+0026                  00071     MIN_D_ALARM     RES 1
+                      00072  
+Warning[207]: Found label after column 1. (STOP)
+0027                  00073     STOP            RES 1
+Warning[207]: Found label after column 1. (STOP_DIA)
+0028                  00074     STOP_DIA        RES 1
+Warning[207]: Found label after column 1. (STOP_MES)
+0029                  00075     STOP_MES        RES 1
+Warning[207]: Found label after column 1. (STOP_ALARM)
+002A                  00076     STOP_ALARM      RES 1
+Warning[207]: Found label after column 1. (STATUS_TEMP)
+002B                  00077     STATUS_TEMP     RES 1
+                      00078             
+Warning[207]: Found label after column 1. (W_TEMP)
+002C                  00079     W_TEMP          RES 1
+                      00080             
+                      00081 ;----------------------------------- MACRO -------------------------------------
+                      00082             
+                      00083 DEBOUNCE MACRO PORT, PIN    ;MACRO PARA ANTIREBOTE 
+                      00084     CALL   DELAY_R1     
+                      00085     BTFSC  PORT, PIN
+                      00086     GOTO   $-1           
+Warning[205]: Found directive in column 1. (ENDM)
+                      00087 ENDM
+                      00088 
+                      00089 ;-------------------------------------------------------------------------------
+                      00090 
+                      00091 RES_VECT CODE 0x0000 
+0000   2???           00092     GOTO SETUP 
+                      00093     
+                      00094 ;-------------------------------- INTERRUPCION ---------------------------------
+                      00095     
+                      00096 ISR_VECT CODE 0x0004
+                      00097  
+0004                  00098 PUSH:
+0004   00??           00099     MOVWF   W_TEMP ;INICIO DE INTERRUPCION
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0005   0E03           00100     SWAPF   STATUS,W
+0006   00??           00101     MOVWF   STATUS_TEMP
+                      00102     
+0007                  00103 ISR:
+0007   190B           00104     BTFSC   INTCON, T0IF ;0
+0008   2???           00105     CALL    FUE_TIMER0 
+0009   180C           00106     BTFSC   PIR1,TMR1IF 
+000A   2???           00107     CALL    FUE_TIMER1 
+000B   188C           00108     BTFSC   PIR1,TMR2IF 
+000C   2???           00109     CALL    FUE_TIMER2 
+                      00110     
+000D                  00111 POP:
+000D   0E??           00112     SWAPF   STATUS_TEMP,W
+000E   0083           00113     MOVWF   STATUS
+000F   0E??           00114     SWAPF   W_TEMP,F   
+0010   0E??           00115     SWAPF   W_TEMP,W
+0011   0009           00116     RETFIE
+                      00117 
+                      00118 ;------------------------- MAIN PROGRAM ----------------------------------------
+                      00119     
+                      00120 MAIN_PROG CODE ; 
+                      00121  
+0000                  00122 SETUP                   ;SE A LLAMA CADA CONFIGURACION PARA EL PIC
+0000   2???           00123     CALL CONFIG_IO          
+0001   2???           00124     CALL CONFIG_TIMER0
+0002   2???           00125     CALL CONFIG_TIMER1
+0003   2???           00126     CALL CONFIG_TIMER2
+0004   2???           00127     CALL CONFIG_INTERRUPCIONES
+                      00128     
+                      00129 ;------------------------------ LOOP -------------------------------------------
+                      00130     
+0005                  00131 LOOP
+0005   1985           00132     BTFSC   PORTA,RA3   ;BOTON PARA MOSTRAR FECHA, CUANDO SE MANTIENE PRESIONADO
+0006   2???           00133     GOTO    FECHA_OFF
+0007   2???           00134     GOTO    FECHA_ON
+                      00135     
+                      00136 ;----------------------- RUTINA BOTONES CON LOS ESTADOS ------------------------
+                      00137     
+                      00138 ; ESTADOS
+                      00139 ; ESTADO 1 = HORA, SE PUEDE MODIFICAR LA HORA CON EL PRIMER PUSH
+                      00140 ; ESTADO 2 = FECHA, SE PUEDE MODIFICAR LA FEHCA CON EL SEGUNDO PUSH
+                      00141 ; ESTADO 3 = ALARMA, SE PUEDE MODIFICAR LA ALARMA CON EL TERCER PUSH
+                      00142     
+0008                  00143 MODIFICAR_HORA:         ;ENTRA AL ESTADO 1
+                      00144     DEBOUNCE PORTA,RA0
+0008   2???               M     CALL   DELAY_R1     
+0009   1805               M     BTFSC  PORTA, RA0
+000A   2???               M     GOTO   $-1           
+000B   1400           00145     BSF BANDERA_ES_1,0  ;INICIA LA BANDERA PARA APAGAR EL RELOJ DE TIEMPO 
+000C   1586           00146     BSF PORTB,RB3       ;ENCIENDE UN LED PARA MOSTRAR EL ESTADO DONDE SE ENCUENTRA
+                      00147     
+000D                  00148 MODIFICAR_HORA_INIT:    
+000D   08??           00149     MOVF    HORA_D,W    ;CARGA LOS VALORES DE HORA EN LOS DISPLAY
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000E   00??           00150     MOVWF   DISPLAY_1
+000F   08??           00151     MOVF    HORA_U,W
+0010   00??           00152     MOVWF   DISPLAY_2
+0011   08??           00153     MOVF    MIN_D,W
+0012   00??           00154     MOVWF   DISPLAY_3
+0013   08??           00155     MOVF    MIN_U,W
+0014   00??           00156     MOVWF   DISPLAY_4
+0015   1885           00157     BTFSC   PORTA,RA1       ;SE VERIFICA SI EL PUSH 2 SE ACTIVA PARA AUMENTAR LOS MINUTOS
+0016   2???           00158     CALL    AUMENTAR_MIN_ES_1
+0017   1805           00159     BTFSC   PORTA,RA0       ;SE VERIFICA SI EL PUSH 1 SE ACTIVA PARA AUMENTAR LA HORA 
+0018   2???           00160     CALL    AUMENTAR_HORA_ES_1
+0019   1D85           00161     BTFSS   PORTA,RA3       ;SE VERIFICA SI EL PUSH 4 SE ACTIVA PARA SALIR DEL ESTADO 1
+001A   2???           00162     GOTO    MODIFICAR_HORA_INIT
+                      00163     DEBOUNCE PORTA,RA3
+001B   2???               M     CALL   DELAY_R1     
+001C   1985               M     BTFSC  PORTA, RA3
+001D   2???               M     GOTO   $-1           
+001E   1000           00164     BCF     BANDERA_ES_1,0 
+001F   1186           00165     BCF     PORTB,RB3       ;SE APAGA EL LED
+0020   0008           00166     RETURN
+                      00167     
+0021                  00168 AUMENTAR_MIN_ES_1:
+                      00169     DEBOUNCE PORTA,RA1
+0021   2???               M     CALL   DELAY_R1     
+0022   1885               M     BTFSC  PORTA, RA1
+0023   2???               M     GOTO   $-1           
+Message[305]: Using default destination of 1 (file).
+0024   0A??           00170     INCF    MIN_U       ;AUMENTA MINUTOS EN UNA UNIDAD
+0025   2???           00171     CALL    CONTMIN_U   ;LLAMA A LA RUTINA CONTMIN PARA REINICIAR EL CONTEO DE MINUTOS
+0026   0008           00172     RETURN 
+                      00173 
+0027                  00174 AUMENTAR_HORA_ES_1:
+                      00175     DEBOUNCE PORTA,RA0
+0027   2???               M     CALL   DELAY_R1     
+0028   1805               M     BTFSC  PORTA, RA0
+0029   2???               M     GOTO   $-1           
+Message[305]: Using default destination of 1 (file).
+002A   0A??           00176     INCF    HORA_U      ;INCREMENTA LA HORA EN UNA UNIDAD
+002B   2???           00177     CALL    CONT_HORAS
+002C   0008           00178     RETURN
+                      00179     
+002D                  00180 MODIFICAR_FECHA:        ;RUTINA PARA MODIFICAR FECHA ESATADO 2
+                      00181     DEBOUNCE PORTA,RA1
+002D   2???               M     CALL   DELAY_R1     
+002E   1885               M     BTFSC  PORTA, RA1
+002F   2???               M     GOTO   $-1           
+0030   1400           00182     BSF BANDERA_ES_2,0 
+0031   1586           00183     BSF PORTB,RB3       ;ENCIENDE 2 LEDS
+0032   1486           00184     BSF PORTB,RB1
+                      00185     
+0033                  00186 MODIFICAR_FECHA_INIT:   ; MODIFICA LA FECHA 
+0033   08??           00187     MOVF    MES_D,W     ;CARGA LOS VALORES DE MES A LOS DISPLAY
+0034   00??           00188     MOVWF   DISPLAY_1
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0035   08??           00189     MOVF    MES_U,W
+0036   00??           00190     MOVWF   DISPLAY_2
+0037   08??           00191     MOVF    DIA_DEC,W
+0038   00??           00192     MOVWF   DISPLAY_3
+0039   08??           00193     MOVF    DIA_UNI,W
+003A   00??           00194     MOVWF   DISPLAY_4
+003B   1885           00195     BTFSC   PORTA,RA1
+003C   2???           00196     CALL    AUMENTAR_DIA_ES_2 ;SE VERIFICA SI EL PUSH 2 SE ACTIVA PARA AUMENTAR LOS DIAS
+003D   1805           00197     BTFSC   PORTA,RA0
+003E   2???           00198     CALL    AUMENTAR_MES_ES_2 ;SE VERIFICA SI EL PUSH 1 SE ACTIVA PARA AUMENTAR LOS MESES
+003F   1D85           00199     BTFSS   PORTA,RA3
+0040   2???           00200     GOTO    MODIFICAR_FECHA_INIT ;SE VERIFICA SI EL PUSH 4 SE ACTIVA PARA SALIR DEL ESTADO 2
+                      00201     DEBOUNCE PORTA,RA3
+0041   2???               M     CALL   DELAY_R1     
+0042   1985               M     BTFSC  PORTA, RA3
+0043   2???               M     GOTO   $-1           
+0044   1000           00202     BCF     BANDERA_ES_2,0  ;APAGA LA BANDERA_ES_2
+0045   1186           00203     BCF     PORTB,RB3       ;APAGA LOS LEDS
+0046   1086           00204     BCF     PORTB,RB1
+Warning[203]: Found opcode in column 1. (RETURN)
+0047   0008           00205 RETURN
+                      00206     
+0048                  00207 AUMENTAR_DIA_ES_2:
+                      00208     DEBOUNCE PORTB,RB6
+0048   2???               M     CALL   DELAY_R1     
+0049   1B06               M     BTFSC  PORTB, RB6
+004A   2???               M     GOTO   $-1           
+Message[305]: Using default destination of 1 (file).
+004B   0A??           00209     INCF    DIA_UNI     ;AUMENTA LOS DIAS EN UNA UNIDAD 
+004C   2???           00210     CALL    CONT_DIAS   ;LLAMA A LA RUTINA PARA RESETEAR LOS DIAS CUANDO HALLA CARRY
+Warning[203]: Found opcode in column 1. (RETURN)
+004D   0008           00211 RETURN
+                      00212 
+004E                  00213 AUMENTAR_MES_ES_2:
+                      00214     DEBOUNCE PORTA,RA0
+004E   2???               M     CALL   DELAY_R1     
+004F   1805               M     BTFSC  PORTA, RA0
+0050   2???               M     GOTO   $-1           
+Message[305]: Using default destination of 1 (file).
+0051   0A??           00215     INCF    MES_U       ;AUMENTA EL MES EN UNA UNIDAD
+0052   2???           00216     CALL    CONT_MESES  ;LLAMA A LA RUTINA PARA RESETEAR EL MES
+Warning[203]: Found opcode in column 1. (RETURN)
+0053   0008           00217 RETURN
+                      00218     
+                      00219     
+                      00220 ;----------------------- MOSTRAR FECHA CON UN BOTON ----------------------------
+                      00221  
+0054                  00222 FECHA_ON:   ;CONFIGURACION PARA MOSTSRAR LA FECHA
+0054   1086           00223     BCF     PORTB,RB1   ;SE ENCIENDE LED PARA MOSTRAR ES ESTADO DE LA FECHA
+0055   08??           00224     MOVF    HORA_D,W    
+0056   00??           00225     MOVWF   DISPLAY_1
+0057   08??           00226     MOVF    HORA_U,W
+0058   00??           00227     MOVWF   DISPLAY_2
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0059   08??           00228     MOVF    MIN_D,W
+005A   00??           00229     MOVWF   DISPLAY_3
+005B   08??           00230     MOVF    MIN_U,W
+005C   00??           00231     MOVWF   DISPLAY_4
+005D   2???           00232     CALL    DELAY_R1
+005E   2???           00233     GOTO    FIN_BANDERA_FECHA
+                      00234     
+005F                  00235 FECHA_OFF:  ;CONFIGURACION PARA MOSTRAR FECHA
+005F   1486           00236     BSF     PORTB,RB1   ;APAGA LED PARA SALIR DEL ESTADO DE FECHA
+0060   08??           00237     MOVF    MES_D,W     
+0061   00??           00238     MOVWF   DISPLAY_1
+0062   08??           00239     MOVF    MES_U,W
+0063   00??           00240     MOVWF   DISPLAY_2
+0064   08??           00241     MOVF    DIA_DEC,W
+0065   00??           00242     MOVWF   DISPLAY_3
+0066   08??           00243     MOVF    DIA_UNI,W
+0067   00??           00244     MOVWF   DISPLAY_4
+0068   2???           00245     CALL    DELAY_R1
+                      00246     
+0069                  00247 FIN_BANDERA_FECHA:      ; FIN D ELA BANDERA Y SE VERIFICA SI PRESIONA UN PUSH
+0069   1805           00248     BTFSC   PORTA,RA0       
+006A   2???           00249     CALL    MODIFICAR_HORA
+006B   1885           00250     BTFSC   PORTA,RA1       
+006C   2???           00251     CALL    MODIFICAR_FECHA
+006D   1905           00252     BTFSC   PORTA,RA2
+006E   2???           00253     CALL    MODIFICAR_ALARMA 
+006F   2???           00254     GOTO    LOOP
+                      00255     
+                      00256 ;---------------------------CONFIGURACIONES-------------------------------------
+0070                  00257 CONFIG_IO:
+0070   1683 1303      00258     BANKSEL TRISA 
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0072   0185           00259     CLRF    TRISA
+0073   30FF           00260     MOVLW   B'11111111'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0074   0085           00261     MOVWF   TRISA
+                      00262     
+0075   3000           00263     MOVLW   B'00000000'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0076   0087           00264     MOVWF    TRISC
+0077   0187           00265     CLRF    PORTC
+                      00266     
+0078   3000           00267     MOVLW   B'00000000'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0079   0088           00268     MOVWF   TRISD
+007A   0188           00269     CLRF    PORTD
+                      00270     
+007B   1683 1303      00271     BANKSEL TRISB
+007D   3000           00272     MOVLW   B'00000000'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+007E   0086           00273     MOVWF   TRISB
+007F   1283 1303      00274     BANKSEL PORTB
+0081   0186           00275     CLRF    PORTB
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00276     
+                      00277     
+0082   1683 1703      00278     BANKSEL ANSEL
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0084   0188           00279     CLRF ANSEL
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0085   0189           00280     CLRF ANSELH
+0086   1283 1303      00281     BANKSEL PORTA
+                      00282     
+                      00283  ;SE LIMPIAN LAS VARIABLES
+0088   01??           00284     CLRF MIN_U
+0089   01??           00285     CLRF MIN_D
+008A   01??           00286     CLRF CONT_1S
+008B   01??           00287     CLRF CONT_500MS
+008C   01??           00288     CLRF INTER_LED
+008D   01??           00289     CLRF BANDERA_A
+008E   01??           00290     CLRF BANDERA_B
+008F   01??           00291     CLRF BANDERA_C
+0090   01??           00292     CLRF BANDERA_D
+0091   01??           00293     CLRF HORA_U
+0092   01??           00294     CLRF HORA_D
+0093   01??           00295     CLRF DIA_UNI
+0094   01??           00296     CLRF DIA_DEC
+0095   01??           00297     CLRF MES_D
+0096   01??           00298     CLRF MES_U
+0097   01??           00299     CLRF MES
+0098   01??           00300     CLRF ALARMA_ON_BAN
+0099   01??           00301     CLRF MIN_U_ALARM
+009A   01??           00302     CLRF MIN_D_ALARM
+009B   01??           00303     CLRF HORA_D_ALARM
+009C   01??           00304     CLRF HORA_U_ALARM
+009D   01??           00305     CLRF CONT_ALARMA
+009E   1400           00306     BSF  BANDERA_A,0
+009F   01??           00307     CLRF HORA24
+00A0   01??           00308     CLRF BANDERA_ES_1
+00A1   01??           00309     CLRF BANDERA_ES_2
+00A2   01??           00310     CLRF BANDERA_ES_3
+00A3   01??           00311     CLRF STOP_DIA
+00A4   01??           00312     CLRF STOP
+00A5   01??           00313     CLRF STOP_ALARM
+00A6   01??           00314     CLRF STOP_MES
+                      00315  
+                      00316 ;SE CONFIGURAN LOS VALORES INICIALES
+                      00317     
+00A7   3001           00318     MOVLW .1 
+00A8   00??           00319     MOVWF DIA_UNI
+00A9   00??           00320     MOVWF MES_U
+00AA   00??           00321     MOVWF MES
+00AB   3006           00322     MOVLW .6
+00AC   00??           00323     MOVWF HORA_U_ALARM
+00AD   0008           00324     RETURN
+                      00325     
+00AE                  00326 CONFIG_TIMER0:
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00AE   1683 1303      00327     BANKSEL OPTION_REG
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00B0   1281           00328     BCF     OPTION_REG, T0CS ; SELECCIONAMOS TMR0 COMO TEMPORIZADOR
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00B1   1181           00329     BCF     OPTION_REG, PSA ; ASIGNAMOS PRESCALER A TMR0
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00B2   1501           00330     BSF     OPTION_REG, PS2
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00B3   1481           00331     BSF     OPTION_REG, PS1 
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00B4   1401           00332     BSF     OPTION_REG, PS0 ; PRESCALER DE 256
+00B5   1283 1303      00333     BANKSEL PORTA           ; CAMBIAMOS AL BANCO 0
+00B7   110B           00334     BCF     INTCON, T0IF    ; APAGO LA BANDERA DE INTERRUPCION DEL TMR0
+00B8   30F8           00335     MOVLW   .248    
+00B9   0081           00336     MOVWF   TMR0
+00BA   0008           00337     RETURN
+                      00338     
+00BB                  00339 CONFIG_TIMER1:
+00BB   1283 1303      00340     BANKSEL T1CON
+00BD   1010           00341     BCF     T1CON,TMR1ON
+00BE   1290           00342     BCF     T1CON,T1CKPS1 ;PRESCALER DE 8
+00BF   1610           00343     BSF     T1CON,T1CKPS0
+00C0   1190           00344     BCF     T1CON,T1OSCEN
+00C1   1090           00345     BCF     T1CON,TMR1CS
+00C2   1410           00346     BSF     T1CON,TMR1ON
+00C3   303C           00347     MOVLW   03CH
+00C4   008F           00348     MOVWF   TMR1H
+00C5   30B0           00349     MOVLW   0B0H
+00C6   008E           00350     MOVWF   TMR1L
+00C7   100C           00351     BCF     PIR1,TMR1IF
+00C8   0008           00352     RETURN
+                      00353     
+00C9                  00354 CONFIG_TIMER2:
+00C9   1283 1303      00355     BANKSEL T2CON
+00CB   307F           00356     MOVLW   B'01111111'
+00CC   0092           00357     MOVWF   T2CON
+00CD   1683 1303      00358     BANKSEL PR2
+00CF   3027           00359     MOVLW   .39
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00D0   0092           00360     MOVWF   PR2
+00D1   1283 1303      00361     BANKSEL PORTA
+00D3   0191           00362     CLRF    TMR2
+00D4   108C           00363     BCF     PIR1,TMR2IF
+00D5   0008           00364     RETURN
+                      00365     
+00D6                  00366 CONFIG_INTERRUPCIONES:
+                      00367    
+00D6   1283 1303      00368     BANKSEL INTCON
+00D8   110B           00369     BCF     INTCON, T0IF ; BORRAMOS BANDERA DE INTERRUPCIÓN
+00D9   168B           00370     BSF     INTCON, T0IE ; HABILITO LA INTERRUPCIÓN DEL TMR0
+00DA   178B           00371     BSF     INTCON, GIE ; HABILITO LAS INTERRUPCIONES GLOBALES
+00DB   170B           00372     BSF     INTCON,PEIE
+                      00373  
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00DC   1683 1303      00374     BANKSEL PIE1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00DE   140C           00375     BSF     PIE1,TMR1IE
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00DF   148C           00376     BSF     PIE1,TMR2IE
+00E0   1283 1303      00377     BANKSEL PIR1
+00E2   100C           00378     BCF     PIR1,TMR1IF
+00E3   108C           00379     BCF     PIR1,TMR2IF
+00E4   0008           00380     RETURN
+                      00381     
+                      00382 ;------------------------------ TABLAS -----------------------------------------
+                      00383     
+00E5                  00384 TABLA_7SEG: ;TABLA PARA DECODIFICAR LOS VALORES DE LA TABLA, EN DISPLAY CATODO COMUN
+00E5   390F           00385     ANDLW   B'00001111';1
+00E6   0782           00386     ADDWF   PCL, F
+00E7   343F           00387     RETLW   B'00111111';0
+00E8   3406           00388     RETLW   B'00000110';1
+00E9   345B           00389     RETLW   B'01011011';2
+00EA   344F           00390     RETLW   B'01001111';3
+00EB   3466           00391     RETLW   B'01100110';4
+00EC   346D           00392     RETLW   B'01101101';5
+00ED   347D           00393     RETLW   B'01111101';6
+00EE   3407           00394     RETLW   B'00000111';7
+00EF   347F           00395     RETLW   B'01111111';8
+00F0   346F           00396     RETLW   B'01101111';9
+00F1   0008           00397     RETURN
+                      00398     
+00F2                  00399 TABLA_DIA_UNI_MAX: ;TABLA PARA LA MAXIMA UNIDAD DEL MES
+Message[305]: Using default destination of 1 (file).
+00F2   0782           00400     ADDWF PCL
+00F3   3402           00401     RETLW .2 ;0
+00F4   3402           00402     RETLW .2 ;ENERO
+00F5   3409           00403     RETLW .9 ;FEBRERO
+00F6   3402           00404     RETLW .2 ;MARZO
+00F7   3401           00405     RETLW .1 ;ABRIL
+00F8   3402           00406     RETLW .2 ;MAYO
+00F9   3401           00407     RETLW .1 ;JUNIO
+00FA   3402           00408     RETLW .2 ;JULIO
+00FB   3402           00409     RETLW .2 ;AGOSTO
+00FC   3401           00410     RETLW .1 ;SEPTIEMBRE
+00FD   3402           00411     RETLW .2 ;OCTUBRE
+00FE   3401           00412     RETLW .1 ;NOVIEMBRE
+00FF   3402           00413     RETLW .2 ;DICIEMBRE
+                      00414     
+0100                  00415 TABLA_DIA_DEC_MAX: ;TABLA PARA EL VALOR DE LA DECENA
+Message[305]: Using default destination of 1 (file).
+0100   0782           00416     ADDWF PCL
+0101   3403           00417     RETLW .3 ;0
+0102   3403           00418     RETLW .3 ;ENERO
+0103   3402           00419     RETLW .2 ;FEBRERO
+0104   3403           00420     RETLW .3 ;MARZO
+0105   3403           00421     RETLW .3 ;ABRIL
+0106   3403           00422     RETLW .3 ;MAYO
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0107   3403           00423     RETLW .3 ;JUNIO
+0108   3403           00424     RETLW .3 ;JULIO
+0109   3403           00425     RETLW .3 ;AGOSTO
+010A   3403           00426     RETLW .3 ;SEPTIEMBRE
+010B   3403           00427     RETLW .3 ;OCTUBRE
+010C   3403           00428     RETLW .3 ;NOVIEMBRE
+010D   3403           00429     RETLW .3 ;DICIEMBRE
+                      00430 
+                      00431 ;------------ CONFIGURACION DE INTERRUPCIONES -----------------------------------
+                      00432 
+010E                  00433 FUE_TIMER0:
+010E   110B           00434     BCF     INTCON, T0IF        ; APAGO LA BANDERA DE INTERRUPCION DEL TMR0
+010F   30F0           00435     MOVLW   .240                ;CARGA LOS VALORES A TMR0
+0110   0081           00436     MOVWF   TMR0
+0111   1800           00437     BTFSC   BANDERA_A,0 ;       TESTEA LA BANDERA DEL DISPLAY 1
+0112   2???           00438     GOTO    DISP_1              ;VA AL DISPLAY 1
+0113   1800           00439     BTFSC   BANDERA_B,0         ;TESTEA LA BANDERA DEL DISPLAY 2
+0114   2???           00440     GOTO    DISP_2              ;VA AL DISPLAT 2
+0115   1800           00441     BTFSC   BANDERA_C,0         ;TESTEA LA BANDERA DEL DISPLAY 3
+0116   2???           00442     GOTO    DISP_3              ;VA AL DISPLAY 3
+0117   1800           00443     BTFSC   BANDERA_D,0         ;TESTEA LA BANDERA DEL DISPLAY 4
+0118   2???           00444     GOTO    DISP_4              ;VA AL DISPLAY 4
+0119   0008           00445     RETURN
+                      00446     
+011A                  00447 DISP_1:
+011A   0185           00448     CLRF    PORTA
+011B   1488           00449     BSF     PORTD,RD1   ;DISPLAY 1
+011C   08??           00450     MOVF    DISPLAY_1,W
+011D   2???           00451     CALL    TABLA_7SEG  ;DECODIFICA EL VALOR DE DISPLAY 1
+011E   0087           00452     MOVWF   PORTC       ;MUESTRA EN DISPLAY
+011F   1000           00453     BCF     BANDERA_A,0 ;LIMPIA LA BANDERA A
+0120   1400           00454     BSF     BANDERA_B,0 ;ENCIENDE LA BANDERA B
+0121   0008           00455     RETURN
+                      00456     
+0122                  00457 DISP_2:
+0122   0188           00458     CLRF    PORTD
+0123   1408           00459     BSF     PORTD,RD0   ;DISPLAY 2
+0124   08??           00460     MOVF    DISPLAY_2,W
+0125   2???           00461     CALL    TABLA_7SEG  ;DECODIFICA EL VALOR DE DISPLAY 2
+0126   0087           00462     MOVWF   PORTC       ;MUESTRA EN DISPLAY
+0127   1000           00463     BCF     BANDERA_B,0 ;LIMPIA LA BANDERA B
+0128   1400           00464     BSF     BANDERA_C,0 ;ENCIENDE LA BANDERA C
+0129   0008           00465     RETURN
+                      00466     
+012A                  00467 DISP_3:
+012A   0188           00468     CLRF    PORTD
+012B   1588           00469     BSF     PORTD,RD3   ;DISPLAY NO 3
+012C   08??           00470     MOVF    DISPLAY_3,W
+012D   2???           00471     CALL    TABLA_7SEG  ;DECODIFICA EL VALOR DE DISPLAY 3
+012E   0087           00472     MOVWF   PORTC       ;MUESTRA EN DISPLAY
+012F   1000           00473     BCF     BANDERA_C,0 ;LIMPIA LA BANDERA C
+0130   1400           00474     BSF     BANDERA_D,0 ;ENCIENDE LA BANDERA D
+0131   0008           00475     RETURN
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00476     
+0132                  00477 DISP_4:
+0132   0188           00478     CLRF    PORTD
+0133   1508           00479     BSF     PORTD,RD2   ;DISPLAY NO 4
+0134   08??           00480     MOVF    DISPLAY_4,W
+0135   2???           00481     CALL    TABLA_7SEG ;DECODIFICA EL VALOR DE DISPLAY 4
+0136   0087           00482     MOVWF   PORTC       ;MUESTRA EN DISPLAY
+0137   1400           00483     BSF     BANDERA_A,0 ;ENCIENDE LA BANDERA A
+0138   1000           00484     BCF     BANDERA_D,0 ;LIMPIA LA BANDERA D
+0139   0008           00485     RETURN
+                      00486     
+013A                  00487 FUE_TIMER1:
+013A   303C           00488     MOVLW   03CH
+013B   008F           00489     MOVWF   TMR1H
+013C   30B0           00490     MOVLW   0B0H
+013D   008E           00491     MOVWF   TMR1L
+013E   100C           00492     BCF     PIR1,TMR1IF
+013F   1800           00493     BTFSC   BANDERA_ES_1,0 ;SALE SI ESTA LA BANDERA DE EST1 , EST2 , EST3
+0140   0008           00494     RETURN
+0141   1800           00495     BTFSC   BANDERA_ES_2,0
+0142   0008           00496     RETURN
+0143   1800           00497     BTFSC   BANDERA_ES_3,0
+0144   0008           00498     RETURN
+0145   2???           00499     CALL    CONT1SEGUNDO 
+0146   2???           00500     CALL    CONTMIN_U 
+0147   2???           00501     CALL    CONT_HORAS 
+0148   2???           00502     CALL    CONT_DIAS 
+0149   2???           00503     CALL    CONT_MESES ;
+                      00504     
+014A                  00505 FINT1:
+014A   0008           00506     RETURN
+                      00507     
+014B                  00508 FUE_TIMER2:
+014B   0191           00509     CLRF    TMR2        ;RESETEA EL TMR2
+014C   108C           00510     BCF     PIR1,TMR2IF ;LIMPIA BANDERA DE TMR2
+Message[305]: Using default destination of 1 (file).
+014D   0A??           00511     INCF    CONT_500MS
+014E   08??           00512     MOVF    CONT_500MS,W 
+014F   3C32           00513     SUBLW   .50
+0150   1D03           00514     BTFSS   STATUS,Z
+0151   2???           00515     GOTO POP
+0152   01??           00516     CLRF    CONT_500MS
+0153   1C00           00517     BTFSS   INTER_LED,0 
+0154   2???           00518     GOTO    ON_LED
+0155   2???           00519     GOTO    OFF_LED
+Warning[207]: Found label after column 1. (VERIFICAR_ALARMA_T2)
+0156                  00520     VERIFICAR_ALARMA_T2 
+0156   1800           00521     BTFSC   BANDERA_ES_3,0
+0157   0008           00522     RETURN
+0158   2???           00523     GOTO    VER_HORA_D_ALARM 
+                      00524     
+0159                  00525 FIN_TMR2
+0159   0008           00526     RETURN
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 13
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00527 
+                      00528 ;------------------ CONFIGURACION DE RUTINAS PARA  LA ALARMA -------------------
+                      00529     
+015A                  00530 VER_HORA_D_ALARM:       ;VERIFICA SI LA HORA DE ALARMA ES IGUAL A LA HORA ACTUAL
+015A   1103           00531     BCF     STATUS,Z
+015B   08??           00532     MOVF    HORA_D,W    ;MUEVE EL VALOR DE HORA Al DISPLAY
+015C   02??           00533     SUBWF   HORA_D_ALARM,W
+015D   1D03           00534     BTFSS   STATUS,Z
+015E   2???           00535     GOTO    FIN_TMR2
+015F   2???           00536     GOTO    VER_HORA_U_ALARM    ;VERIFICA SI LA HORA DE ALARMA ES IGUAL A LA HORA ACTUAL
+                      00537     
+0160                  00538 VER_HORA_U_ALARM:
+0160   1103           00539     BCF     STATUS,Z
+0161   08??           00540     MOVF    HORA_U,W    ;MUEVE EL VALOR DE HORA U A DISPLAY
+0162   02??           00541     SUBWF   HORA_U_ALARM,W;
+0163   1D03           00542     BTFSS   STATUS,Z
+0164   2???           00543     GOTO    FIN_TMR2
+0165   2???           00544     GOTO    VER_MIN_D_ALARM
+                      00545     
+0166                  00546 VER_MIN_D_ALARM:    ;VERIFICA SI LOS MINUTOS DE LA ALARMA ES IGUAL A LOS ACTUALES
+0166   1103           00547     BCF     STATUS,Z
+0167   08??           00548     MOVF    MIN_D,W 
+0168   02??           00549     SUBWF   MIN_D_ALARM,W
+0169   1D03           00550     BTFSS   STATUS,Z
+016A   2???           00551     GOTO    FIN_TMR2
+016B   2???           00552     GOTO    VER_MIN_U_ALARM
+                      00553 
+016C                  00554 VER_MIN_U_ALARM:    ;VERIFICA SI LA MIN DE ALARMA ES IGUAL A LA MIN ACTUAL
+016C   1103           00555     BCF     STATUS,Z
+016D   08??           00556     MOVF    MIN_U,W 
+016E   02??           00557     SUBWF   MIN_U_ALARM,W
+016F   1D03           00558     BTFSS   STATUS,Z
+0170   2???           00559     GOTO    FIN_TMR2
+0171   1400           00560     BSF     ALARMA_ON_BAN,0
+0172   2???           00561     GOTO    FIN_TMR2
+                      00562     
+0173                  00563 ON_LED:     ;SI EL LED ESTA APAGADO LO ENCIENDE
+0173   1400           00564     BSF     INTER_LED,0
+0174   1406           00565     BSF     PORTB,RB0
+0175   2???           00566     GOTO    VERIFICAR_ALARMA_T2
+                      00567             
+0176                  00568 OFF_LED:    ;SI EL LED ESTA ENCENDIDO LO APAGA
+0176   1000           00569     BCF     INTER_LED,0
+0177   1006           00570     BCF     PORTB,RB0
+0178   2???           00571     GOTO    VERIFICAR_ALARMA_T2
+                      00572     
+0179                  00573 ALARMA_ON:  ;SI TODOS LOS VALORES DE LA ALARMA SON IGUALES A LOS ACUALES INICIA
+0179   1103           00574     BCF     STATUS,Z 
+017A   1786           00575     BSF     PORTB,RB7
+Message[305]: Using default destination of 1 (file).
+017B   0A??           00576     INCF    CONT_ALARMA
+017C   08??           00577     MOVF    CONT_ALARMA,W
+017D   3C3C           00578     SUBLW   .60             ;CUENTA A 60 PARA TERMINAR
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 14
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+017E   1D03           00579     BTFSS   STATUS,Z 
+017F   0008           00580     RETURN
+0180   01??           00581     CLRF    CONT_ALARMA     ;LIMPIA EL CONTADOR
+0181   1386           00582     BCF     PORTB,RB7       ;SE APAGA LA ALARMA
+0182   1000           00583     BCF     ALARMA_ON_BAN,0
+0183   0008           00584     RETURN
+                      00585     
+0184                  00586 CONT1SEGUNDO: ;INICIA LA RUTINA DE INCREMENTAR SEGUNDOS
+0184   1103           00587     BCF     STATUS,Z
+Message[305]: Using default destination of 1 (file).
+0185   0A??           00588     INCF    CONT_1S     ;INCREMENTA EL CONTADOR
+0186   08??           00589     MOVF    CONT_1S,W
+0187   3C0A           00590     SUBLW   .10         ;CONFIGURACION DE 1 MINUTO 10*100MS = 1 S
+0188   1D03           00591     BTFSS   STATUS,Z 
+0189   0008           00592     RETURN      
+018A   01??           00593     CLRF    CONT_1S 
+Message[305]: Using default destination of 1 (file).
+018B   0A??           00594     INCF    MIN_U
+018C   1800           00595     BTFSC   ALARMA_ON_BAN,0 ;TESTEA EL VALOR DE LA BANDERA DE ALARM
+018D   2???           00596     CALL    ALARMA_ON
+018E   0008           00597     RETURN
+                      00598     
+018F                  00599 CONTMIN_U: ;CONTADOR DE 1 MINUTO
+018F   1103           00600     BCF     STATUS,Z
+0190   08??           00601     MOVF    MIN_U,W
+0191   3C0A           00602     SUBLW   .10
+0192   1D03           00603     BTFSS   STATUS,Z
+0193   0008           00604     RETURN
+0194   01??           00605     CLRF    MIN_U
+Message[305]: Using default destination of 1 (file).
+0195   0A??           00606     INCF    MIN_D
+0196   1103           00607     BCF     STATUS,Z
+0197   08??           00608     MOVF    MIN_D,W
+0198   3C06           00609     SUBLW   .6
+0199   1D03           00610     BTFSS   STATUS,Z
+019A   0008           00611     RETURN
+019B   01??           00612     CLRF    MIN_D
+019C   1C00           00613     BTFSS   BANDERA_ES_1,0
+Message[305]: Using default destination of 1 (file).
+019D   0A??           00614     INCF    HORA_U 
+019E   0008           00615     RETURN
+                      00616     
+019F                  00617 CONT_HORAS: ;CONTADOR DE 10 MINUTOS
+019F   1800           00618     BTFSC   STOP, 0
+01A0   2???           00619     CALL    PARAR
+01A1   1103           00620     BCF     STATUS,Z
+01A2   08??           00621     MOVF    HORA_U,W
+01A3   3C0A           00622     SUBLW   .10  
+01A4   1D03           00623     BTFSS   STATUS,Z
+01A5   0008           00624     RETURN
+01A6   01??           00625     CLRF    HORA_U
+Message[305]: Using default destination of 1 (file).
+01A7   0A??           00626     INCF    HORA_D
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 15
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01A8   1103           00627     BCF     STATUS,Z
+01A9   08??           00628     MOVF    HORA_D,W
+01AA   3C02           00629     SUBLW   .2
+01AB   1903           00630     BTFSC   STATUS,Z
+01AC   1400           00631     BSF     STOP,0
+01AD   0008           00632     RETURN
+                      00633     
+01AE                  00634 CONT_DIAS:  ;CONTADOR DE UN DIA
+01AE   1800           00635     BTFSC   STOP_DIA,0
+01AF   2???           00636     CALL    PARAR_DIA
+01B0   1103           00637     BCF     STATUS,Z
+01B1   08??           00638     MOVF    DIA_UNI,W
+01B2   3C0A           00639     SUBLW   .10
+01B3   1D03           00640     BTFSS   STATUS,Z
+01B4   0008           00641     RETURN
+01B5   01??           00642     CLRF    DIA_UNI
+Message[305]: Using default destination of 1 (file).
+01B6   0A??           00643     INCF    DIA_DEC
+01B7   1103           00644     BCF     STATUS,Z
+01B8   08??           00645     MOVF    MES,W
+01B9   2???           00646     CALL    TABLA_DIA_DEC_MAX
+01BA   02??           00647     SUBWF   DIA_DEC,W
+01BB   1903           00648     BTFSC   STATUS,Z
+01BC   1400           00649     BSF     STOP_DIA,0
+01BD   0008           00650     RETURN
+                      00651     
+01BE                  00652 CONT_MESES: ;CONTADOR DE UN MES
+01BE   1800           00653     BTFSC   STOP_MES,0
+01BF   2???           00654     CALL    PARAR_MES
+01C0   1103           00655     BCF     STATUS,Z
+01C1   08??           00656     MOVF    MES_U,W
+01C2   3C0A           00657     SUBLW   .10
+01C3   1D03           00658     BTFSS   STATUS,Z
+01C4   0008           00659     RETURN
+01C5   01??           00660     CLRF    MES_U
+Message[305]: Using default destination of 1 (file).
+01C6   0A??           00661     INCF    MES_D
+01C7   1400           00662     BSF     STOP_MES,0
+01C8   0008           00663     RETURN
+                      00664     
+01C9                  00665 PARAR_DIA:  ;RUTINA PARA VERIFICAR EL ULTIMO DIA DEL MES
+01C9   08??           00666     MOVF    MES,W
+01CA   2???           00667     CALL    TABLA_DIA_UNI_MAX
+01CB   02??           00668     SUBWF   DIA_UNI,W
+01CC   1903           00669     BTFSC   STATUS, Z
+01CD   2???           00670     CALL    LIMPIAR_DIA ;LIMPIA TODOS LOS VALORES MENORES A UN DIA
+01CE   0008           00671     RETURN
+                      00672     
+01CF                  00673 PARAR:      ;RUTINA PARA DETENER EL RELOJ DE 24 HORAS
+01CF   08??           00674     MOVF    HORA_U, W
+01D0   3C04           00675     SUBLW   .4
+01D1   1903           00676     BTFSC   STATUS, Z
+01D2   2???           00677     CALL    LIMPIAR
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 16
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01D3   0008           00678     RETURN
+                      00679     
+01D4                  00680 PARAR_MES:  ;RUTINA PARA PARAR EL MES
+01D4   08??           00681     MOVF    MES_U,W
+01D5   3C03           00682     SUBLW   .3
+01D6   1903           00683     BTFSC   STATUS,Z
+01D7   2???           00684     CALL    LIMPIAR_MES
+01D8   0008           00685     RETURN
+                      00686     
+01D9                  00687 LIMPIAR:    ;RUTINA PARA LIMPIAR DIA
+01D9   1C00           00688     BTFSS   BANDERA_ES_1,0
+01DA   01??           00689     CLRF    MIN_U
+01DB   1C00           00690     BTFSS   BANDERA_ES_1,0
+01DC   01??           00691     CLRF    MIN_D
+01DD   01??           00692     CLRF    HORA_U
+01DE   01??           00693     CLRF    HORA_D
+01DF   01??           00694     CLRF    STOP
+01E0   1C00           00695     BTFSS   BANDERA_ES_1,0
+01E1   0A??           00696     INCF    DIA_UNI, F
+01E2   0008           00697     RETURN
+                      00698     
+01E3                  00699 LIMPIAR_MES: ;LIMPIAR VALORES DEL MES
+01E3   3001           00700     MOVLW   .1
+01E4   00??           00701     MOVWF   MES_D
+01E5   01??           00702     CLRF    STOP_MES
+01E6   01??           00703     CLRF    DIA_DEC
+01E7   3001           00704     MOVLW   .1
+01E8   00??           00705     MOVWF   MES_U
+01E9   00??           00706     MOVWF   DIA_UNI
+01EA   00??           00707     MOVWF   MES
+Message[305]: Using default destination of 1 (file).
+01EB   0A??           00708     INCF    AÑO
+01EC   0008           00709     RETURN
+                      00710     
+01ED                  00711 LIMPIAR_DIA: ;LIMPIA LOS VALORES DE DIA
+01ED   01??           00712     CLRF    DIA_DEC
+01EE   01??           00713     CLRF    STOP_DIA
+01EF   3001           00714     MOVLW   .1
+01F0   00??           00715     MOVWF   DIA_UNI
+01F1   1C00           00716     BTFSS   BANDERA_ES_2,0
+Message[305]: Using default destination of 1 (file).
+01F2   0A??           00717     INCF    MES_U
+01F3   1C00           00718     BTFSS   BANDERA_ES_2,0
+Message[305]: Using default destination of 1 (file).
+01F4   0A??           00719     INCF    MES
+01F5   0008           00720     RETURN
+                      00721 
+01F6                  00722 CONTMIN_U_ALARM:  
+01F6   1103           00723     BCF     STATUS,Z
+01F7   08??           00724     MOVF    MIN_U_ALARM,W
+01F8   3C0A           00725     SUBLW   .10
+01F9   1D03           00726     BTFSS   STATUS,Z
+01FA   0008           00727     RETURN
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 17
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01FB   01??           00728     CLRF    MIN_U_ALARM
+Message[305]: Using default destination of 1 (file).
+01FC   0A??           00729     INCF    MIN_D_ALARM
+01FD   1103           00730     BCF     STATUS,Z
+01FE   08??           00731     MOVF    MIN_D_ALARM,W
+01FF   3C06           00732     SUBLW   .6
+0200   1D03           00733     BTFSS   STATUS,Z
+0201   0008           00734     RETURN
+0202   01??           00735     CLRF    MIN_D_ALARM ;AUMENTA LA HORA
+0203   0008           00736     RETURN
+                      00737     
+0204                  00738 CONT_HORAS_ALARM:
+0204   1800           00739     BTFSC   STOP_ALARM, 0
+0205   2???           00740     CALL    PARAR_ALARM
+0206   1103           00741     BCF     STATUS,Z
+0207   08??           00742     MOVF    HORA_U_ALARM,W
+0208   3C0A           00743     SUBLW   .10
+0209   1D03           00744     BTFSS   STATUS,Z
+020A   0008           00745     RETURN
+020B   01??           00746     CLRF    HORA_U_ALARM
+Message[305]: Using default destination of 1 (file).
+020C   0A??           00747     INCF    HORA_D_ALARM
+020D   1103           00748     BCF     STATUS,Z
+020E   08??           00749     MOVF    HORA_D_ALARM,W
+020F   3C02           00750     SUBLW   .2
+0210   1903           00751     BTFSC   STATUS,Z
+0211   1400           00752     BSF     STOP_ALARM,0
+0212   0008           00753     RETURN
+                      00754     
+0213                  00755 PARAR_ALARM:
+0213   08??           00756     MOVF    HORA_U_ALARM, W
+0214   3C04           00757     SUBLW   .4
+0215   1903           00758     BTFSC   STATUS, Z
+0216   2???           00759     CALL    LIMPIAR_ALARM
+0217   0008           00760     RETURN
+                      00761     
+0218                  00762 LIMPIAR_ALARM:
+0218   01??           00763     CLRF    MIN_U_ALARM
+0219   01??           00764     CLRF    MIN_D_ALARM
+021A   01??           00765     CLRF    HORA_U_ALARM
+021B   01??           00766     CLRF    HORA_D_ALARM
+021C   01??           00767     CLRF    STOP_ALARM
+021D   0008           00768     RETURN
+                      00769  
+                      00770 ;--------------------------- --------------------------------------------------
+021E                  00771 MODIFICAR_ALARMA:           ;MODIFICA LA ALARMA, ESTADO 3 
+                      00772     DEBOUNCE PORTA,RA2
+021E   2???               M     CALL   DELAY_R1     
+021F   1905               M     BTFSC  PORTA, RA2
+0220   2???               M     GOTO   $-1           
+0221   1400           00773     BSF     BANDERA_ES_3,0
+0222   1506           00774     BSF     PORTB,RB2      ; SE ENCIENDE UN LED
+Warning[207]: Found label after column 1. (MODIFICAR_ALARMA_INIT)
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 18
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0223                  00775     MODIFICAR_ALARMA_INIT
+0223   08??           00776     MOVF    HORA_D_ALARM,W
+0224   00??           00777     MOVWF   DISPLAY_1
+0225   08??           00778     MOVF    HORA_U_ALARM,W
+0226   00??           00779     MOVWF   DISPLAY_2
+0227   08??           00780     MOVF    MIN_D_ALARM,W
+0228   00??           00781     MOVWF   DISPLAY_3
+0229   08??           00782     MOVF    MIN_U_ALARM,W
+022A   00??           00783     MOVWF   DISPLAY_4
+022B   1885           00784     BTFSC   PORTA,RA1       ;SE VERIFICA SI EL PUSH 2 SE ACTIVA PARA AUMENTAR LOS DIAS
+022C   2???           00785     CALL     AUMENTAR_MIN_ALARM_3 
+022D   1805           00786     BTFSC   PORTA,RA0       ;SE VERIFICA SI EL PUSH 1 SE ACTIVA PARA AUMENTAR LOS DIAS
+022E   2???           00787     CALL    AUMENTAR_HORA_ALARM_3
+022F   1D85           00788     BTFSS   PORTA,RA3       ;SE VERIFICA SI EL PUSH 4 SE ACTIVA PARA SALIR DEL ESTADO 3
+0230   2???           00789     GOTO    MODIFICAR_ALARMA_INIT
+                      00790     DEBOUNCE PORTA,RA3
+0231   2???               M     CALL   DELAY_R1     
+0232   1985               M     BTFSC  PORTA, RA3
+0233   2???               M     GOTO   $-1           
+0234   1000           00791     BCF     BANDERA_ES_3,0
+0235   1106           00792     BCF     PORTB,RB2       ; SE APAGA EL LED
+0236   0008           00793     RETURN
+                      00794     
+0237                  00795 AUMENTAR_MIN_ALARM_3:
+                      00796     DEBOUNCE PORTA,RA1
+0237   2???               M     CALL   DELAY_R1     
+0238   1885               M     BTFSC  PORTA, RA1
+0239   2???               M     GOTO   $-1           
+Message[305]: Using default destination of 1 (file).
+023A   0A??           00797     INCF    MIN_U_ALARM
+023B   2???           00798     CALL    CONTMIN_U_ALARM
+023C   0008           00799     RETURN
+                      00800     
+023D                  00801 AUMENTAR_HORA_ALARM_3:
+                      00802     DEBOUNCE PORTA,RA0
+023D   2???               M     CALL   DELAY_R1     
+023E   1805               M     BTFSC  PORTA, RA0
+023F   2???               M     GOTO   $-1           
+Message[305]: Using default destination of 1 (file).
+0240   0A??           00803     INCF    HORA_U_ALARM
+0241   2???           00804     CALL    CONT_HORAS_ALARM
+0242   0008           00805     RETURN
+                      00806     
+                      00807 ;-------------------------- DELAY ----------------------------------------------
+                      00808     
+0243                  00809 DELAY_R1:
+0243   30FA           00810     MOVLW   .250    
+0244   00??           00811     MOVWF   DELAY_1
+Message[305]: Using default destination of 1 (file).
+0245   0B??           00812     DECFSZ  DELAY_1 
+0246   2???           00813     GOTO    $-1     
+0247   0008           00814     RETURN
+                      00815 
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 19
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00816 ;-------------------- FIN DEL PROGRAMA -----------------------------------------
+                      00817 ;-------------- XD     ---------------------------------------------------------
+Warning[205]: Found directive in column 1. (END)
+20F4 3FFF             00818 END
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ABDEN                             00000000
+ABDOVF                            00000007
+ACKDT                             00000005
+ACKEN                             00000004
+ACKSTAT                           00000006
+ADCON0                            0000001F
+ADCON1                            0000009F
+ADCS0                             00000006
+ADCS1                             00000007
+ADDEN                             00000003
+ADFM                              00000007
+ADIE                              00000006
+ADIF                              00000006
+ADON                              00000000
+ADRESH                            0000001E
+ADRESL                            0000009E
+ALARMA_ON                         00000179
+ALARMA_ON_BAN                     00000001
+ANS0                              00000000
+ANS1                              00000001
+ANS10                             00000002
+ANS11                             00000003
+ANS12                             00000004
+ANS13                             00000005
+ANS2                              00000002
+ANS3                              00000003
+ANS4                              00000004
+ANS5                              00000005
+ANS6                              00000006
+ANS7                              00000007
+ANS8                              00000000
+ANS9                              00000001
+ANSEL                             00000188
+ANSELH                            00000189
+AUMENTAR_DIA_ES_2                 00000048
+AUMENTAR_HORA_ALARM_3             0000023D
+AUMENTAR_HORA_ES_1                00000027
+AUMENTAR_MES_ES_2                 0000004E
+AUMENTAR_MIN_ALARM_3              00000237
+AUMENTAR_MIN_ES_1                 00000021
+AÑO                               00000000
+BANDERA_A                         00000002
+BANDERA_B                         00000003
+BANDERA_C                         00000004
+BANDERA_D                         00000005
+BANDERA_ES_1                      00000006
+BANDERA_ES_2                      00000007
+BANDERA_ES_3                      00000008
+BANDERA_FECHA                     00000009
+BAUDCTL                           00000187
+BCLIE                             00000003
+BCLIF                             00000003
+BF                                00000000
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BRG0                              00000000
+BRG1                              00000001
+BRG10                             00000002
+BRG11                             00000003
+BRG12                             00000004
+BRG13                             00000005
+BRG14                             00000006
+BRG15                             00000007
+BRG16                             00000003
+BRG2                              00000002
+BRG3                              00000003
+BRG4                              00000004
+BRG5                              00000005
+BRG6                              00000006
+BRG7                              00000007
+BRG8                              00000000
+BRG9                              00000001
+BRGH                              00000002
+C                                 00000000
+C1CH0                             00000000
+C1CH1                             00000001
+C1IE                              00000005
+C1IF                              00000005
+C1OE                              00000005
+C1ON                              00000007
+C1OUT                             00000006
+C1POL                             00000004
+C1R                               00000002
+C1RSEL                            00000005
+C1SEN                             00000005
+C2CH0                             00000000
+C2CH1                             00000001
+C2IE                              00000006
+C2IF                              00000006
+C2OE                              00000005
+C2ON                              00000007
+C2OUT                             00000006
+C2POL                             00000004
+C2R                               00000002
+C2REN                             00000004
+C2RSEL                            00000004
+C2SYNC                            00000000
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCP2CON                           0000001D
+CCP2IE                            00000000
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CCP2IF                            00000000
+CCP2M0                            00000000
+CCP2M1                            00000001
+CCP2M2                            00000002
+CCP2M3                            00000003
+CCP2X                             00000005
+CCP2Y                             00000004
+CCPR1                             00000015
+CCPR1H                            00000016
+CCPR1L                            00000015
+CCPR2                             0000001B
+CCPR2H                            0000001C
+CCPR2L                            0000001B
+CHS0                              00000002
+CHS1                              00000003
+CHS2                              00000004
+CHS3                              00000005
+CKE                               00000006
+CKP                               00000004
+CM1CON0                           00000107
+CM2CON0                           00000108
+CM2CON1                           00000109
+CONFIG_INTERRUPCIONES             000000D6
+CONFIG_IO                         00000070
+CONFIG_TIMER0                     000000AE
+CONFIG_TIMER1                     000000BB
+CONFIG_TIMER2                     000000C9
+CONT1                             0000000D
+CONT1SEGUNDO                      00000184
+CONT2                             0000000E
+CONTMIN_U                         0000018F
+CONTMIN_U_ALARM                   000001F6
+CONT_1S                           0000000A
+CONT_500MS                        0000000C
+CONT_60S                          0000000B
+CONT_ALARMA                       0000000F
+CONT_DIAS                         000001AE
+CONT_HORAS                        0000019F
+CONT_HORAS_ALARM                  00000204
+CONT_MESES                        000001BE
+CREN                              00000004
+CSRC                              00000007
+D                                 00000005
+DATA_ADDRESS                      00000005
+DC                                00000001
+DC1B0                             00000004
+DC1B1                             00000005
+DC2B0                             00000004
+DC2B1                             00000005
+DEBOUNCE                          
+DELAY_1                           00000010
+DELAY_R1                          00000243
+DIA_DEC                           00000012
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 23
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+DIA_D_MAX                         00000018
+DIA_UNI                           00000011
+DIA_U_MAX                         00000017
+DISPLAY_1                         00000013
+DISPLAY_2                         00000014
+DISPLAY_3                         00000015
+DISPLAY_4                         00000016
+DISP_1                            0000011A
+DISP_2                            00000122
+DISP_3                            0000012A
+DISP_4                            00000132
+D_A                               00000005
+D_NOT_A                           00000005
+ECCPAS                            0000009C
+ECCPAS0                           00000004
+ECCPAS1                           00000005
+ECCPAS2                           00000006
+ECCPASE                           00000007
+EEADR                             0000010D
+EEADRH                            0000010F
+EECON1                            0000018C
+EECON2                            0000018D
+EEDAT                             0000010C
+EEDATA                            0000010C
+EEDATH                            0000010E
+EEIE                              00000004
+EEIF                              00000004
+EEPGD                             00000007
+F                                 00000001
+FECHA_OFF                         0000005F
+FECHA_ON                          00000054
+FERR                              00000002
+FINT1                             0000014A
+FIN_BANDERA_FECHA                 00000069
+FIN_TMR2                          00000159
+FSR                               00000004
+FUE_TIMER0                        0000010E
+FUE_TIMER1                        0000013A
+FUE_TIMER2                        0000014B
+FVREN                             00000000
+GCEN                              00000007
+GIE                               00000007
+GO                                00000001
+GO_DONE                           00000001
+GO_NOT_DONE                       00000001
+HORA24                            0000001B
+HORA_D                            0000001A
+HORA_D_ALARM                      0000001D
+HORA_U                            00000019
+HORA_U_ALARM                      0000001C
+HTS                               00000002
+I2C_DATA                          00000005
+I2C_READ                          00000002
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 24
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+I2C_START                         00000003
+I2C_STOP                          00000004
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTER_LED                         0000001E
+INTF                              00000001
+IOCB                              00000096
+IOCB0                             00000000
+IOCB1                             00000001
+IOCB2                             00000002
+IOCB3                             00000003
+IOCB4                             00000004
+IOCB5                             00000005
+IOCB6                             00000006
+IOCB7                             00000007
+IRCF0                             00000004
+IRCF1                             00000005
+IRCF2                             00000006
+IRP                               00000007
+ISR                               00000007
+LIMPIAR                           000001D9
+LIMPIAR_ALARM                     00000218
+LIMPIAR_DIA                       000001ED
+LIMPIAR_MES                       000001E3
+LOOP                              00000005
+LTS                               00000001
+MC1OUT                            00000007
+MC2OUT                            00000006
+MES                               00000021
+MES12                             00000024
+MES_D                             00000023
+MES_U                             00000022
+MIN_D                             00000020
+MIN_D_ALARM                       00000026
+MIN_U                             0000001F
+MIN_U_ALARM                       00000025
+MODIFICAR_ALARMA                  0000021E
+MODIFICAR_ALARMA_INIT             00000223
+MODIFICAR_FECHA                   0000002D
+MODIFICAR_FECHA_INIT              00000033
+MODIFICAR_HORA                    00000008
+MODIFICAR_HORA_INIT               0000000D
+MSK                               00000093
+MSK0                              00000000
+MSK1                              00000001
+MSK2                              00000002
+MSK3                              00000003
+MSK4                              00000004
+MSK5                              00000005
+MSK6                              00000006
+MSK7                              00000007
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 25
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+NOT_A                             00000005
+NOT_ADDRESS                       00000005
+NOT_BO                            00000000
+NOT_BOR                           00000000
+NOT_DONE                          00000001
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_RC8                           00000006
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_TX8                           00000006
+NOT_W                             00000002
+NOT_WRITE                         00000002
+OERR                              00000001
+OFF_LED                           00000176
+ON_LED                            00000173
+OPTION_REG                        00000081
+OSCCON                            0000008F
+OSCTUNE                           00000090
+OSFIE                             00000007
+OSFIF                             00000007
+OSTS                              00000003
+P                                 00000004
+P1M0                              00000006
+P1M1                              00000007
+PARAR                             000001CF
+PARAR_ALARM                       00000213
+PARAR_DIA                         000001C9
+PARAR_MES                         000001D4
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PDC0                              00000000
+PDC1                              00000001
+PDC2                              00000002
+PDC3                              00000003
+PDC4                              00000004
+PDC5                              00000005
+PDC6                              00000006
+PEIE                              00000006
+PEN                               00000002
+PIE1                              0000008C
+PIE2                              0000008D
+PIR1                              0000000C
+PIR2                              0000000D
+POP                               0000000D
+PORTA                             00000005
+PORTB                             00000006
+PORTC                             00000007
+PORTD                             00000008
+PORTE                             00000009
+PR2                               00000092
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 26
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PRSEN                             00000007
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PSSAC0                            00000002
+PSSAC1                            00000003
+PSSBD0                            00000000
+PSSBD1                            00000001
+PSTRCON                           0000009D
+PULSR                             00000002
+PULSS                             00000003
+PUSH                              00000004
+PWM1CON                           0000009B
+R                                 00000002
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RA6                               00000006
+RA7                               00000007
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RC0                               00000000
+RC1                               00000001
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+RC5                               00000005
+RC6                               00000006
+RC7                               00000007
+RC8_9                             00000006
+RC9                               00000006
+RCD8                              00000000
+RCEN                              00000003
+RCIDL                             00000006
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+RD0                               00000000
+RD1                               00000001
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 27
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RD2                               00000002
+RD3                               00000003
+RD4                               00000004
+RD5                               00000005
+RD6                               00000006
+RD7                               00000007
+RE0                               00000000
+RE1                               00000001
+RE2                               00000002
+RE3                               00000003
+READ_WRITE                        00000002
+RP0                               00000005
+RP1                               00000006
+RSEN                              00000001
+RX9                               00000006
+RX9D                              00000000
+R_NOT_W                           00000002
+R_W                               00000002
+S                                 00000003
+SBOREN                            00000004
+SCKP                              00000004
+SCS                               00000000
+SEN                               00000000
+SENDB                             00000003
+SETUP                             00000000
+SMP                               00000007
+SPBRG                             00000099
+SPBRGH                            0000009A
+SPEN                              00000007
+SR0                               00000006
+SR1                               00000007
+SRCON                             00000185
+SREN                              00000005
+SSPADD                            00000093
+SSPBUF                            00000013
+SSPCON                            00000014
+SSPCON2                           00000091
+SSPEN                             00000005
+SSPIE                             00000003
+SSPIF                             00000003
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+SSPM3                             00000003
+SSPMSK                            00000093
+SSPOV                             00000006
+SSPSTAT                           00000094
+STATUS                            00000003
+STATUS_TEMP                       0000002B
+STOP                              00000027
+STOP_ALARM                        0000002A
+STOP_DIA                          00000028
+STOP_MES                          00000029
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 28
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+STRA                              00000000
+STRB                              00000001
+STRC                              00000002
+STRD                              00000003
+STRSYNC                           00000004
+SWDTEN                            00000000
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1GINV                            00000007
+T1GIV                             00000007
+T1GSS                             00000001
+T1INSYNC                          00000002
+T1OSCEN                           00000003
+T1SYNC                            00000002
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TABLA_7SEG                        000000E5
+TABLA_DIA_DEC_MAX                 00000100
+TABLA_DIA_UNI_MAX                 000000F2
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR1                              0000000E
+TMR1CS                            00000001
+TMR1GE                            00000006
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISA6                            00000006
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 29
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TRISA7                            00000007
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRISC                             00000087
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+TRISC6                            00000006
+TRISC7                            00000007
+TRISD                             00000088
+TRISD0                            00000000
+TRISD1                            00000001
+TRISD2                            00000002
+TRISD3                            00000003
+TRISD4                            00000004
+TRISD5                            00000005
+TRISD6                            00000006
+TRISD7                            00000007
+TRISE                             00000089
+TRISE0                            00000000
+TRISE1                            00000001
+TRISE2                            00000002
+TRISE3                            00000003
+TRMT                              00000001
+TUN0                              00000000
+TUN1                              00000001
+TUN2                              00000002
+TUN3                              00000003
+TUN4                              00000004
+TX8_9                             00000006
+TX9                               00000006
+TX9D                              00000000
+TXD8                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+UA                                00000001
+ULPWUE                            00000005
+ULPWUIE                           00000002
+ULPWUIF                           00000002
+VCFG0                             00000004
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 30
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+VCFG1                             00000005
+VERIFICAR_ALARMA_T2               00000156
+VER_HORA_D_ALARM                  0000015A
+VER_HORA_U_ALARM                  00000160
+VER_MIN_D_ALARM                   00000166
+VER_MIN_U_ALARM                   0000016C
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+VR3                               00000003
+VRCON                             00000097
+VREN                              00000007
+VROE                              00000006
+VRR                               00000005
+VRSS                              00000004
+W                                 00000000
+WCOL                              00000007
+WDTCON                            00000105
+WDTPS0                            00000001
+WDTPS1                            00000002
+WDTPS2                            00000003
+WDTPS3                            00000004
+WPUB                              00000095
+WPUB0                             00000000
+WPUB1                             00000001
+WPUB2                             00000002
+WPUB3                             00000003
+WPUB4                             00000004
+WPUB5                             00000005
+WPUB6                             00000006
+WPUB7                             00000007
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+WUE                               00000001
+W_TEMP                            0000002C
+Z                                 00000002
+_BOR21V                           00003EFF
+_BOR40V                           00003FFF
+_BOR4V_BOR21V                     00003EFF
+_BOR4V_BOR40V                     00003FFF
+_BOREN_NSLEEP                     00003EFF
+_BOREN_OFF                        00003CFF
+_BOREN_ON                         00003FFF
+_BOREN_SBODEN                     00003DFF
+_BOR_NSLEEP                       00003EFF
+_BOR_OFF                          00003CFF
+_BOR_ON                           00003FFF
+_BOR_SBODEN                       00003DFF
+_CONFIG1                          00002007
+_CONFIG2                          00002008
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003F7F
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 31
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_CP_OFF                           00003FFF
+_CP_ON                            00003FBF
+_DEBUG_OFF                        00003FFF
+_DEBUG_ON                         00001FFF
+_DEVID1                           00002006
+_EC_OSC                           00003FFB
+_EXTRC                            00003FFF
+_EXTRCIO                          00003FFE
+_EXTRC_OSC_CLKOUT                 00003FFF
+_EXTRC_OSC_NOCLKOUT               00003FFE
+_FCMEN_OFF                        000037FF
+_FCMEN_ON                         00003FFF
+_FOSC_EC                          00003FFB
+_FOSC_EXTRC_CLKOUT                00003FFF
+_FOSC_EXTRC_NOCLKOUT              00003FFE
+_FOSC_HS                          00003FFA
+_FOSC_INTRC_CLKOUT                00003FFD
+_FOSC_INTRC_NOCLKOUT              00003FFC
+_FOSC_LP                          00003FF8
+_FOSC_XT                          00003FF9
+_HS_OSC                           00003FFA
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_IESO_OFF                         00003BFF
+_IESO_ON                          00003FFF
+_INTOSC                           00003FFD
+_INTOSCIO                         00003FFC
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FF8
+_LVP_OFF                          00002FFF
+_LVP_ON                           00003FFF
+_MAIN_PROG_000A                   0000000A
+_MAIN_PROG_001D                   0000001D
+_MAIN_PROG_0023                   00000023
+_MAIN_PROG_0029                   00000029
+_MAIN_PROG_002F                   0000002F
+_MAIN_PROG_0043                   00000043
+_MAIN_PROG_004A                   0000004A
+_MAIN_PROG_0050                   00000050
+_MAIN_PROG_0220                   00000220
+_MAIN_PROG_0233                   00000233
+_MAIN_PROG_0239                   00000239
+_MAIN_PROG_023F                   0000023F
+_MAIN_PROG_0246                   00000246
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FEF
+_WDTE_OFF                         00003FF7
+_WDTE_ON                          00003FFF
+MPASM 5.77                    PRUEBA 2P1.ASM   9-24-2020  19:32:13         PAGE 32
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WDT_OFF                          00003FF7
+_WDT_ON                           00003FFF
+_WRT_1FOURTH                      00003BFF
+_WRT_256                          00003DFF
+_WRT_HALF                         000039FF
+_WRT_OFF                          00003FFF
+_XT_OSC                           00003FF9
+__16F887                          00000001
+
+Errors   :     0
+Warnings :    55 reported,     0 suppressed
+Messages :    38 reported,     0 suppressed
+
+

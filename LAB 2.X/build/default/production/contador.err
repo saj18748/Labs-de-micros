@@ -1,0 +1,14 @@
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 36 : Found label after column 1. (CONT1)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 37 : Found label after column 1. (CONT2)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 38 : Found label after column 1. (FLAGS)
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 62 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 63 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 68 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 69 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 70 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 74 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 76 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 79 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 80 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[203] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 126 : Found opcode in column 1. (RETURN)
+Warning[203] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LAB 2.X\CONTADOR.ASM 133 : Found opcode in column 1. (RETURN)

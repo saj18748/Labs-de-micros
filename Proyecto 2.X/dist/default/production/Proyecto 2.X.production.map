@@ -1,0 +1,160 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Tue Oct 27 02:50:28 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                 ISR_VECT       code   0x000004    program   0x0000bc
+                MAIN_PROG       code   0x000100    program   0x00016a
+.config_2007_BUILD/DEFAULT/PRODUCTION/PROYECT       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/PRODUCTION/PROYECT       code   0x002008    program   0x000002
+                  GPR_VAR      udata   0x000020       data   0x000016
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x000061      
+                            0x000100    0x0001b4      
+                            0x002007    0x002008      
+            280 out of 8455 program addresses used, program memory utilization is 3%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     ADCX   0x000022    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     ADCY   0x000029    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               ADC_INICIO   0x000108    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              BANDERA_ADC   0x000020    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               BANDERA_RX   0x00004d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+             BANDERA_TMR0   0x000016    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+             BANDERA_TMR2   0x00001c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               BANDERA_TX   0x000031    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     COMA   0x00003d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+       CONFIGURACION_ADCX   0x000170    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+       CONFIGURACION_ADCY   0x000175    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               CONFIG_ADC   0x000163    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+         CONFIG_INTERRUPT   0x00019b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                CONFIG_IO   0x000148    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                CONFIG_RX   0x00018b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              CONFIG_TMR0   0x000190    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              CONFIG_TMR2   0x000196    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+           CONFIG_TX_9600   0x00017a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    COORX   0x000041    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    COORY   0x000045    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                       CX   0x000115    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                       CY   0x000124    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                  DELAY_1   0x0001aa    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                  DISPLAY   0x00010e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_0   0x000138    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_1   0x000141    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    ENTER   0x000049    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                      ISR   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     LOOP   0x000107    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                  NIB_SEP   0x000133    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP0X   0x000117    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP0Y   0x000126    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP1X   0x00011d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP1Y   0x00012c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                      POP   0x000010    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     PUSH   0x000004    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 TABLA_7S   0x000050    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+          _MAIN_PROG_010B   0x00010b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+             COMUNICACION   0x00002f       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONT1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   CONT1S   0x000026       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONT2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONT3   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONTA   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 CONTADOR   0x000027       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONTB   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   CONTOR   0x000025       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_H   0x000030       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_L   0x000031       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     FLAG   0x00002e       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 FLAG_ADC   0x000035       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 ROTACION   0x000034       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              STATUS_TEMP   0x00002b       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    TEMP1   0x00002c       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    TEMP2   0x00002d       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                VALOR_ADC   0x000029       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 VAR_ADCX   0x000033       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 VAR_ADCY   0x000032       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   V_VOLT   0x000028       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   W_TEMP   0x00002a       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     PUSH   0x000004    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                      ISR   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                      POP   0x000010    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+             BANDERA_TMR0   0x000016    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+             BANDERA_TMR2   0x00001c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              BANDERA_ADC   0x000020    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     ADCX   0x000022    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     ADCY   0x000029    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               BANDERA_TX   0x000031    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     COMA   0x00003d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    COORX   0x000041    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    COORY   0x000045    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    ENTER   0x000049    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               BANDERA_RX   0x00004d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 TABLA_7S   0x000050    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     LOOP   0x000107    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               ADC_INICIO   0x000108    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+          _MAIN_PROG_010B   0x00010b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                  DISPLAY   0x00010e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                       CX   0x000115    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP0X   0x000117    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP1X   0x00011d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                       CY   0x000124    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP0Y   0x000126    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     OP1Y   0x00012c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                  NIB_SEP   0x000133    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_0   0x000138    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_1   0x000141    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                CONFIG_IO   0x000148    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+               CONFIG_ADC   0x000163    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+       CONFIGURACION_ADCX   0x000170    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+       CONFIGURACION_ADCY   0x000175    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+           CONFIG_TX_9600   0x00017a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                CONFIG_RX   0x00018b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              CONFIG_TMR0   0x000190    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              CONFIG_TMR2   0x000196    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+         CONFIG_INTERRUPT   0x00019b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                  DELAY_1   0x0001aa    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONT1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONT2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONT3   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONTA   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    CONTB   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   CONTOR   0x000025       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   CONT1S   0x000026       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 CONTADOR   0x000027       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   V_VOLT   0x000028       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                VALOR_ADC   0x000029       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                   W_TEMP   0x00002a       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+              STATUS_TEMP   0x00002b       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    TEMP1   0x00002c       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                    TEMP2   0x00002d       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                     FLAG   0x00002e       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+             COMUNICACION   0x00002f       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_H   0x000030       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                DISPLAY_L   0x000031       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 VAR_ADCY   0x000032       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 VAR_ADCX   0x000033       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 ROTACION   0x000034       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+                 FLAG_ADC   0x000035       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Proyecto 2.X\Proyecto 2.asm
+
+

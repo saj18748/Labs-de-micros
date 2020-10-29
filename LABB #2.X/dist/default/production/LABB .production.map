@@ -1,0 +1,72 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Thu Aug 13 22:29:47 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                MAIN_PROG       code   0x000100    program   0x0000c2
+.config_2007_BUILD/DEFAULT/PRODUCTION/LABORAT       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/PRODUCTION/LABORAT       code   0x002008    program   0x000002
+                  GPR_VAR      udata   0x000020       data   0x000003
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000100    0x000160      
+                            0x002007    0x002008      
+            102 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  CONFIG1   0x000158    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    DECRE   0x00013f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                   DECRE2   0x00014b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                DELAY_BIG   0x000156    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+              DELAY_SMALL   0x00015c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    INCRE   0x00013a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                   INCRE2   0x000144    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                     LOOP   0x00011f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP2   0x000126    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP3   0x00012b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP4   0x000130    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP5   0x000135    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    YEFRY   0x000151    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+          _MAIN_PROG_015F   0x00015f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    CONT1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    CONT2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    FLAGS   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                     LOOP   0x00011f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP2   0x000126    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP3   0x00012b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP4   0x000130    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    LOOP5   0x000135    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    INCRE   0x00013a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    DECRE   0x00013f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                   INCRE2   0x000144    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                   DECRE2   0x00014b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    YEFRY   0x000151    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                DELAY_BIG   0x000156    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                  CONFIG1   0x000158    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+              DELAY_SMALL   0x00015c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+          _MAIN_PROG_015F   0x00015f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    CONT1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    CONT2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+                    FLAGS   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\LABB #2.X\laboratorio 2.asm
+
+

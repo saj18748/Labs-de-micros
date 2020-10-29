@@ -1,0 +1,23 @@
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 25 : Found label after column 1. (CONT1)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 26 : Found label after column 1. (CONT50MS)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 27 : Found label after column 1. (W_TEMP)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 28 : Found label after column 1. (STATUS_TEMP)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 29 : Found label after column 1. (VAR_DISPLAY)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 30 : Found label after column 1. (NIBBLE_L)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 31 : Found label after column 1. (NIBBLE_H)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 44 : Found label after column 1. (PUSH)
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 49 : Found label after column 1. (ISR)
+Warning[202] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 55 : Argument out of range.  Least significant bits used.
+Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 57 : Found label after column 1. (POP)
+Message[305] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 125 : Using default destination of 1 (file).
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 134 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 136 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 137 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 138 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 140 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 141 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 165 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 166 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 168 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 169 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\PRUEBA LAB3.X\LABB3.ASM 170 : Register in operand not in bank 0.  Ensure that bank bits are correct.
