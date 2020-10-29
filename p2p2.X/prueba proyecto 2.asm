@@ -36,6 +36,9 @@ GPR_VAR  UDATA
     TEMP1	RES 1
     TEMP2	RES 1
 
+    CONTX	RES 1
+    CONTY	RES 1
+
 ;----------------------- CONFIGURACION DE INTERUPCIONES ------------------------
     
  RES_VECT  CODE    0x0000           
@@ -98,7 +101,7 @@ MAIN_PROG CODE  0X100
 START
     BANKSEL TRISA
     
-   
+    CALL   CONFIG_ADC
     CALL   CONFIG_IO
     CALL   CONFIG_TMR0
     CALL   CONFIG_INTERRUPT
@@ -109,8 +112,11 @@ START
     
 LOOP
    
-    CALL  ADC_INICIO
+    CALL  CONFIG_ADCX
+   
     
+    CALL  DISPLAY_3
+    CALL  DISPLAY_2
     CALL  DISPLAY_1
     CALL  DISPLAY_0
     CALL  CONFIG_TR
@@ -120,21 +126,31 @@ LOOP
 
 ;------------------------- OPERACIONES DE LOS BLOQUES -------------------------
  
-ADC_INICIO:
-    CALL    DELAY_1
-    BSF	    ADCON0,GO	
-    BTFSC   ADCON0,GO
+CONFIG_ADCX:
+    BSF	    ADCON0, GO
+    BTFSC   ADCON0, GO
     GOTO    $-1
-    
     MOVF    ADRESH,W
-    MOVWF   CONTA
-    MOVWF   TXREG
+    MOVWF   CONTX
+    BSF	    ADCON0, CHS0
+    CALL    DELAY_1
+    RETURN
+    
+CONFIG_ADCY:
+    BSF	    ADCON0, GO
+    BTFSC   ADCON0, GO
+    MOVF    ADRESH, W
+    MOVF    CONTY
+    BCF	    ADCON0, CHS2
+    CALL    DELAY_1
+    RETURN
+    
     
 ; ------------- DISPLAYS --------------------------------------------
   
 DISPLAY_0:
     BCF   PORTD, RD6
-    SWAPF CONTA, W
+    SWAPF CONTX, W
     MOVWF TEMP1
     MOVLW 0X0F
     ANDWF TEMP1, W
@@ -144,14 +160,32 @@ DISPLAY_0:
     RETURN
  
 DISPLAY_1:
+
     BCF   PORTD, RD7
     MOVLW 0X0F
-    ANDWF CONTA,W
+    ANDWF CONTX,W
     CALL  TABLA_7S
     MOVWF PORTB 
     BSF   PORTD, RD6
     RETURN 
     
+DISPLAY_2:
+    BCF   PORTD, RD4
+    MOVLW 0X0F
+    ANDWF CONTY,W
+    CALL  TABLA_7S
+    MOVWF PORTB 
+    BSF   PORTD, RD5
+    RETURN 
+    
+DISPLAY_3:
+    BCF   PORTD, RD5
+    MOVLW 0X0F
+    ANDWF CONTY,W
+    CALL  TABLA_7S
+    MOVWF PORTB 
+    BSF   PORTD, RD4
+    RETURN 
 ; ------------- CONFIGURACION IO --------------------------------------------
   
 CONFIG_TR:
@@ -172,26 +206,8 @@ CONFIG_TR:
     BCF	    PIR1, RCIF
  
     RETURN
-
-    
-    
+ 
 CONFIG_IO:
-    
-    BANKSEL ADCON1
-    MOVLW   B'00000000'
-    MOVWF   ADCON1
-    
-    BANKSEL TRISA
-    BSF	    TRISA,0
-    
-    BANKSEL ANSEL
-    BSF	    ANSEL,0
-    
-    BANKSEL ADCON0
-    MOVLW   B'01000011'
-    MOVWF   ADCON0
-    
-    
     BANKSEL TRISB
     MOVLW   B'00000000'
     MOVWF   TRISB
@@ -212,8 +228,26 @@ CONFIG_IO:
     
     RETURN
     
+CONFIG_ADC:
+    BANKSEL PORTA
     
-
+    BCF	    ADCON0, ADCS1
+    BSF	    ADCON0, ADCS0
+    BCF	    ADCON0, CHS3
+    BCF	    ADCON0, CHS2
+    BCF	    ADCON0, CHS1
+    BCF	    ADCON0, CHS0
+    ;
+    BANKSEL TRISA
+;
+    BCF	    ADCON1, ADFM
+    BCF	    ADCON1, VCFG1
+    BCF	    ADCON1, VCFG0
+    
+    BANKSEL PORTA
+    BSF	    ADCON0, ADON
+    
+   
 ;-------------------- TIMER 0 ----------------------------------------------
 CONFIG_TMR0:
     BANKSEL TRISA
