@@ -13,21 +13,21 @@ Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-M
 Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 39 : Found label after column 1. (CONTX)
 Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 40 : Found label after column 1. (CONTY)
 Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 44 : Found label after column 1. (RES_VECT)
-Message[305] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 143 : Using default destination of 1 (file).
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 194 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 144 : Using default destination of 1 (file).
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 195 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 196 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 197 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 198 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 213 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 219 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 225 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 243 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 199 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 214 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 220 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 226 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 244 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 245 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 254 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 246 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 255 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 256 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 257 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 258 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Warning[205] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 285 : Found directive in column 1. (END)
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 259 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\P2P2.X\PRUEBA PROYECTO 2.ASM 286 : Found directive in column 1. (END)

@@ -111,7 +111,7 @@ START
 ;--------------------   LOOP   -------------------------------------------------
     
 LOOP
-   
+    CALL CONFIG_TR
     CALL  CONFIG_ADCX
    
     
@@ -132,6 +132,7 @@ CONFIG_ADCX:
     GOTO    $-1
     MOVF    ADRESH,W
     MOVWF   CONTX
+    MOVWF   TXREG
     BSF	    ADCON0, CHS0
     CALL    DELAY_1
     RETURN
