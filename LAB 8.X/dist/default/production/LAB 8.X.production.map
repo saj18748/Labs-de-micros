@@ -1,0 +1,65 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Fri Nov 06 18:24:31 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                MAIN_PROG       code   0x000003    program   0x000118
+.config_2007_BUILD/DEFAULT/PRODUCTION/LAB 8.O       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/PRODUCTION/LAB 8.O       code   0x002008    program   0x000002
+                  GPR_VAR      udata   0x000020       data   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00008e      
+                            0x002007    0x002008      
+            145 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+              ADC_DIGITAL   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+              CONFIG_ADC1   0x000032    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+              CONFIG_ADC2   0x000041    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+               CONFIG_CCP   0x000087    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                CONFIG_IO   0x000050    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+             CONFIG_RELOJ   0x00006f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+            CONFIG_TIMER2   0x00007b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+               DELAY_10MS   0x000027    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                     LOOP   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+              PASO_SERVOS   0x000020    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                    START   0x000003    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+          _MAIN_PROG_000C   0x00000f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+          _MAIN_PROG_0018   0x00001b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                 SUMADOR1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                 SUMADOR2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    START   0x000003    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+              ADC_DIGITAL   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                     LOOP   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+          _MAIN_PROG_000C   0x00000f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+          _MAIN_PROG_0018   0x00001b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+              PASO_SERVOS   0x000020    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+               DELAY_10MS   0x000027    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+              CONFIG_ADC1   0x000032    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+              CONFIG_ADC2   0x000041    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                CONFIG_IO   0x000050    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+             CONFIG_RELOJ   0x00006f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+            CONFIG_TIMER2   0x00007b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+               CONFIG_CCP   0x000087    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                 SUMADOR1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+                 SUMADOR2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\LAB 8.X\LAB 8.asm
+
+
