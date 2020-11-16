@@ -1,12 +1,12 @@
 ;******************************************************************************
 ;                                                                             *
-;     Filaname:     lab -> laboratorio 4.asm                                  *
+;     Filaname:     lab -> laboratorio 9.asm                                  *
 ;     Date         25 /08/2020                                                *
 ;     File version: v.2                                                       *
 ;     author :       Yefry Sajquiy - 18748                                    *
 ;     ompany;        UVG                                                      *
-;     Description:   contador de 8 bits   HEXAGECIMAL                         *
-;                                                *
+;     Description:   memoria EEPROM                                            *
+;                                                                              *
 ;******************************************************************************
 
     
@@ -21,73 +21,25 @@
 ;------------- VARIABLES CON 1 ESPACIO -----------------------------------------
  
 GPR_VAR  UDATA
-    CONT1      RES 1     
-    CONTA      RES 1
-    CONTB      RES 1
-    CONTOR     RES 1
-    CONT1S     RES 1
-    CONTADOR   RES 1 
    
-    V_VOLT      RES 1
-    VALOR_ADC	RES 1
- 
+
     W_TEMP	RES 1
     STATUS_TEMP	RES 1 
     TEMP1	RES 1
     TEMP2	RES 1
+	
+    NUMERO	    RES 1
 
-;----------------------- CONFIGURACION DE INTERUPCIONES ------------------------
-    
+;----------------------------------- MACRO -------------------------------------
+	    
+DEBOUNCE MACRO PORT, PIN    ;MACRO PARA ANTIREBOTE 
+    CALL   DELAY_1	
+    BTFSC  PORT, PIN
+    GOTO   $-1		 
+ENDM
+	
  RES_VECT  CODE    0x0000           
  GOTO   START  
- 
-ISR_VECT  CODE    0X0004
-  
-PUSH:
-    MOVWF W_TEMP
-    SWAPF STATUS, W
-    MOVWF STATUS_TEMP
-    
-ISR:
-    BTFSS INTCON, T0IF 
-    GOTO POP
-    MOVLW   .60
-    MOVWF   TMR0
-    BCF	    INTCON, T0IF
-  
-    DECFSZ  CONTOR,1
-    BTFSS   STATUS, Z
-    GOTO POP
-    
-POP:
-    SWAPF STATUS_TEMP, W
-    MOVWF STATUS 
-    SWAPF W_TEMP, F
-    SWAPF W_TEMP, W
-    RETFIE
-    
-;---------------------------------TABLA----------------------------------------
-TABLA_7S:
-    
-    ANDLW   B'00001111';1
-    ADDWF   PCL, F
-    RETLW   B'00111111';0
-    RETLW   B'00000110';1
-    RETLW   B'01011011';2
-    RETLW   B'01001111';3
-    RETLW   B'01100110';4
-    RETLW   B'01101101';5
-    RETLW   B'01111101';6
-    RETLW   B'00000111';7
-    RETLW   B'01111111';8
-    RETLW   B'01101111';9
-    RETLW   B'01110111';A
-    RETLW   B'01111100';b
-    RETLW   B'00111001';c
-    RETLW   B'01011110';d
-    RETLW   B'01111001';E
-    RETLW   B'01110001';F
-
 
 ;------------------------------------------------------------------------------
 ;	    MAIN PROGRAM
@@ -107,11 +59,14 @@ START
 ;--------------------   LOOP   -------------------------------------------------
     
 LOOP
-    CALL  ADC_INICIO
     
-    ;CALL  DISPLAY_1
-    ;CALL  DISPLAY_0
-
+    
+    CALL    ADC_INICIO
+    CALL    CONFIG_READ
+    
+    BTFSC   PORTC, RC0
+    GOTO    CONFIG_WRITE
+    
     GOTO    LOOP   
 
 ;------------------------- OPERACIONES DE LOS BLOQUES -------------------------
@@ -124,29 +79,69 @@ ADC_INICIO:
     
     MOVF    ADRESH,W
     MOVWF   PORTB
-    MOVWF   CONTA
-    
-; ------------- DISPLAYS --------------------------------------------
-  
-DISPLAY_0:
-    BCF   PORTD, RD6
-    SWAPF CONTA, W
-    MOVWF TEMP1
-    MOVLW 0X0F
-    ANDWF TEMP1, W
-    CALL  TABLA_7S
-    MOVWF PORTC 
-    BSF   PORTD, RD7
+    MOVWF   NUMERO
     RETURN
+    
+CONFIG_WRITE:
+    CALL    DELAY_1
+    
+    BSF	    PORTC, RC4
+    
+    BANKSEL EEADR
+    
+    BSF	    STATUS, RP0
+    BSF	    STATUS, RP1
+    BTFSC   EECON1, WR
+    GOTO    $-1
+    
+    BCF	    STATUS, RP0
+    MOVF    NUMERO, W
+    MOVWF   EEADR
+    BCF	    STATUS, RP1
+    MOVF    NUMERO, W
+    BSF	    STATUS, RP1
+    MOVWF   EEDATA
+    BSF	    STATUS, RP0
+    BCF	    EECON1, EEPGD
+    BSF	    EECON1, WREN
+    
+    MOVLW   55h		;
+    MOVWF   EECON2	;Write 55h
+    MOVLW   0xAA ;
+    MOVWF   EECON2	;Write AAh
+    
+    BSF	    EECON1, WR	;Set WR bit to begin write
+    BSF	    INTCON, GIE
+    BCF	    EECON1, WREN	;Disable writes
+    BCF	    STATUS, RP0	;Bank 0
+    BCF	    STATUS, RP1
+    
+    BCF	    PORTC, RC4
+    
+    GOTO    LOOP
+
+   
+CONFIG_READ:
+   
+    BSF	    PORTC, RC5
+    BCF	    STATUS, RP0
+    BSF	    STATUS, RP1
+    
+    MOVF    NUMERO,W
+    MOVWF   EEADR
+    BSF	    STATUS, RP0
+    BCF	    EECON1, EEPGD
+    BSF	    EECON1, RD
+    BCF	    STATUS, RP0
+    MOVF    EEDATA, W
+    
+    BCF	    STATUS, RP1
+    
+    MOVWF   PORTD
+
+   RETURN
+    
  
-DISPLAY_1:
-    BCF   PORTD, RD7
-    MOVLW 0X0F
-    ANDWF CONTA,W
-    CALL  TABLA_7S
-    MOVWF PORTC 
-    BSF   PORTD, RD6
-    RETURN 
     
 ; ------------- CONFIGURACION IO --------------------------------------------
   
@@ -174,7 +169,7 @@ CONFIG_IO:
     CLRF    PORTB
     
     BANKSEL TRISC
-    MOVLW   B'00000000'
+    MOVLW   B'00000001'
     MOVWF   TRISC
     BANKSEL PORTC
     CLRF    PORTC
@@ -221,5 +216,4 @@ DELAY_1:
     RETURN
     
 END
-    
     

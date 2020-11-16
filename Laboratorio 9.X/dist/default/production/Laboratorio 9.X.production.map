@@ -1,0 +1,68 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Thu Nov 12 19:57:12 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                MAIN_PROG       code   0x000100    program   0x0000fa
+.config_2007_BUILD/DEFAULT/PRODUCTION/LABORAT       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/PRODUCTION/LABORAT       code   0x002008    program   0x000002
+                  GPR_VAR      udata   0x000020       data   0x000005
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000100    0x00017c      
+                            0x002007    0x002008      
+            130 out of 8455 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+               ADC_INICIO   0x00010b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+         CONFIG_INTERRUPT   0x00016e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                CONFIG_IO   0x00013d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+              CONFIG_READ   0x000130    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+              CONFIG_TMR0   0x000161    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+             CONFIG_WRITE   0x000113    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                  DELAY_1   0x000172    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                     LOOP   0x000106    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+          _MAIN_PROG_010E   0x00010e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+          _MAIN_PROG_011A   0x00011a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                   NUMERO   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+              STATUS_TEMP   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                    TEMP1   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                    TEMP2   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                   W_TEMP   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    START   0x000100    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                     LOOP   0x000106    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+               ADC_INICIO   0x00010b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+          _MAIN_PROG_010E   0x00010e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+             CONFIG_WRITE   0x000113    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+          _MAIN_PROG_011A   0x00011a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+              CONFIG_READ   0x000130    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                CONFIG_IO   0x00013d    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+              CONFIG_TMR0   0x000161    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+         CONFIG_INTERRUPT   0x00016e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                  DELAY_1   0x000172    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                   W_TEMP   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+              STATUS_TEMP   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                    TEMP1   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                    TEMP2   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+                   NUMERO   0x000024       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Laboratorio 9.X\Laboratorio 9.asm
+
+
