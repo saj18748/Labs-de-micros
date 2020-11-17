@@ -1,12 +1,12 @@
 ;******************************************************************************
 ;                                                                             *
-;     Filaname:     lab -> laboratorio 4.asm                                  *
+;     Filaname:     Proyecto final                                            *
 ;     Date         25 /08/2020                                                *
 ;     File version: v.2                                                       *
 ;     author :       Yefry Sajquiy - 18748                                    *
 ;     ompany;        UVG                                                      *
-;     Description:   contador de 8 bits   HEXAGECIMAL                         *
-;                                                *
+;     Description:   proyeceto de apliacion de modulos                        *
+;                                                                             *
 ;******************************************************************************
 
     
