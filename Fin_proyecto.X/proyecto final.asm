@@ -10,214 +10,166 @@
 ;******************************************************************************
 
     
-#INCLUDE "p16f887.inc"
+#include "p16f887.inc"
+
 ; CONFIG1
-; __config 0xF0F1
+; __config 0xE0F4
  __CONFIG _CONFIG1, _FOSC_INTRC_NOCLKOUT & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF & _CPD_OFF & _BOREN_OFF & _IESO_OFF & _FCMEN_OFF & _LVP_OFF
 ; CONFIG2
 ; __config 0xFFFF
  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
  
-;------------- VARIABLES CON 1 ESPACIO -----------------------------------------
- 
-GPR_VAR  UDATA
-    CONT1      RES 1     
-    CONTA      RES 1
-    CONTB      RES 1
-    CONTOR     RES 1
-    CONT1S     RES 1
-    CONTADOR   RES 1 
-   
-    V_VOLT      RES 1
-    VALOR_ADC	RES 1
- 
-    W_TEMP	RES 1
-    STATUS_TEMP	RES 1 
-    TEMP1	RES 1
-    TEMP2	RES 1
+;*******************************************************************************
+   GPR_VAR        UDATA
+   W_TEMP         RES        1      ; w register for context saving (ACCESS)
+   STATUS_TEMP    RES        1      ; status used for context saving
+   DELAY1	  RES	    1
+   DELAY2	  RES	    1
+;*******************************************************************************
+; Reset Vector
+;*******************************************************************************
 
-;----------------------- CONFIGURACION DE INTERUPCIONES ------------------------
-    
- RES_VECT  CODE    0x0000           
- GOTO   START  
- 
-ISR_VECT  CODE    0X0004
-  
-PUSH:
-    MOVWF W_TEMP
-    SWAPF STATUS, W
-    MOVWF STATUS_TEMP
-    
-ISR:
-    BTFSS INTCON, T0IF 
-    GOTO POP
-    MOVLW   .60
-    MOVWF   TMR0
-    BCF	    INTCON, T0IF
-  
-    DECFSZ  CONTOR,1
-    BTFSS   STATUS, Z
-    GOTO POP
-    
-POP:
-    SWAPF STATUS_TEMP, W
-    MOVWF STATUS 
-    SWAPF W_TEMP, F
-    SWAPF W_TEMP, W
-    RETFIE
-    
-;---------------------------------TABLA----------------------------------------
-TABLA_7S:
-    
-    ANDLW   B'00001111';1
-    ADDWF   PCL, F
-    RETLW   B'00111111';0
-    RETLW   B'00000110';1
-    RETLW   B'01011011';2
-    RETLW   B'01001111';3
-    RETLW   B'01100110';4
-    RETLW   B'01101101';5
-    RETLW   B'01111101';6
-    RETLW   B'00000111';7
-    RETLW   B'01111111';8
-    RETLW   B'01101111';9
-    RETLW   B'01110111';A
-    RETLW   B'01111100';b
-    RETLW   B'00111001';c
-    RETLW   B'01011110';d
-    RETLW   B'01111001';E
-    RETLW   B'01110001';F
+RES_VECT  CODE    0x0000            ; processor reset vector
+    GOTO    START                   ; go to beginning of program
 
+;*******************************************************************************
+;ISR       CODE    0x0004           ; interrupt vector location
+;     RETFIE
+;*******************************************************************************
+; MAIN PROGRAM
+;*******************************************************************************
 
-;------------------------------------------------------------------------------
-;	    MAIN PROGRAM
-;------------------------------------------------------------------------------
-     
-MAIN_PROG CODE  0X100 
- 
+MAIN_PROG CODE                      ; let linker place main program
+
 START
-    BANKSEL TRISA
- 
-    CALL   CONFIG_IO
-    CALL   CONFIG_TMR0
-    CALL   CONFIG_INTERRUPT
-
-    GOTO   LOOP
-  
-;--------------------   LOOP   -------------------------------------------------
+;*******************************************************************************
+    CALL    CONFIG_RELOJ		; RELOJ INTERNO DE 500KHz
+    CALL    CONFIG_IO
+    CALL    CONFIG_TX_RX		; 10417hz
+    CALL    CONFIG_ADC			; canal 0, fosc/8, adc on, justificado a la izquierda, Vref interno (0-5V)
+    BANKSEL PORTA
+;*******************************************************************************
+   
+;*******************************************************************************
+; CICLO INFINITO
+;*******************************************************************************
+LOOP:
+    CALL    DELAY_50MS
+    BSF	    ADCON0, GO		    ; EMPIEZA LA CONVERSIÓN
+CHECK_AD:
+    BTFSC   ADCON0, GO			; revisa que terminó la conversión
+    GOTO    $-1
+    BCF	    PIR1, ADIF			; borramos la bandera del adc
+    MOVF    ADRESH, W
+    MOVWF   PORTB			; mueve adresh al puerto b
     
-LOOP
-    CALL  ADC_INICIO
+CHECK_RCIF:			    ; RECIBE EN RX y lo muestra en PORTD
+    BTFSS   PIR1, RCIF
+    GOTO    CHECK_TXIF
+    MOVF    RCREG, W
+    MOVWF   PORTD
     
-    ;CALL  DISPLAY_1
-    ;CALL  DISPLAY_0
-
-    GOTO    LOOP   
-
-;------------------------- OPERACIONES DE LOS BLOQUES -------------------------
- 
-ADC_INICIO:
-    CALL    DELAY_1
-    BSF	    ADCON0,GO	
-    BTFSC   ADCON0,GO
+CHECK_TXIF: 
+    MOVFW   PORTB		    ; ENVÍA PORTB POR EL TX
+    MOVWF   TXREG
+   
+    BTFSS   PIR1, TXIF
     GOTO    $-1
     
-    MOVF    ADRESH,W
-    MOVWF   PORTB
-    MOVWF   CONTA
+    GOTO LOOP
     
-; ------------- DISPLAYS --------------------------------------------
-  
-DISPLAY_0:
-    BCF   PORTD, RD6
-    SWAPF CONTA, W
-    MOVWF TEMP1
-    MOVLW 0X0F
-    ANDWF TEMP1, W
-    CALL  TABLA_7S
-    MOVWF PORTC 
-    BSF   PORTD, RD7
+;*******************************************************************************
+    
+CONFIG_RELOJ
+    BANKSEL TRISA
+    
+    BSF OSCCON, IRCF2
+    BCF OSCCON, IRCF1
+    BCF OSCCON, IRCF0		    ; FRECUECNIA DE 1MHz
+;    
+;    BCF OSCCON, OSTS		    ; UTILIZAREMOS RELOJ INTERNO
+;    BSF OSCCON, HTS		    ; ESTABLE
+;    BSF OSCCON, SCS		    ; SELECCIONAMOS RELOJ INTERNO COMO EL RELOJ DEL SISTEMA
     RETURN
  
-DISPLAY_1:
-    BCF   PORTD, RD7
-    MOVLW 0X0F
-    ANDWF CONTA,W
-    CALL  TABLA_7S
-    MOVWF PORTC 
-    BSF   PORTD, RD6
-    RETURN 
+ ;--------------------------------------------------------
+    CONFIG_TX_RX
+    BANKSEL TXSTA
+    BCF	    TXSTA, SYNC		    ; ASINCRÓNO
+    BSF	    TXSTA, BRGH		    ; LOW SPEED
+    BANKSEL BAUDCTL
+    BSF	    BAUDCTL, BRG16	    ; 8 BITS BAURD RATE GENERATOR
+    BANKSEL SPBRG
+    MOVLW   .25	    
+    MOVWF   SPBRG		    ; CARGAMOS EL VALOR DE BAUDRATE CALCULADO
+    CLRF    SPBRGH
+    BANKSEL RCSTA
+    BSF	    RCSTA, SPEN		    ; HABILITAR SERIAL PORT
+    BCF	    RCSTA, RX9		    ; SOLO MANEJAREMOS 8BITS DE DATOS
+    BSF	    RCSTA, CREN		    ; HABILITAMOS LA RECEPCIÓN 
+    BANKSEL TXSTA
+    BSF	    TXSTA, TXEN		    ; HABILITO LA TRANSMISION
     
-; ------------- CONFIGURACION IO --------------------------------------------
-  
-CONFIG_IO:
-    
-    BANKSEL ADCON1
-    MOVLW   B'00000000'
-    MOVWF   ADCON1
-    
-    BANKSEL TRISA
-    BSF	    TRISA,0
-    
-    BANKSEL ANSEL
-    BSF	    ANSEL,0
-    
-    BANKSEL ADCON0
-    MOVLW   B'01000011'
-    MOVWF   ADCON0
-    
-    
-    BANKSEL TRISB
-    MOVLW   B'00000000'
-    MOVWF   TRISB
-    BANKSEL PORTB
-    CLRF    PORTB
-    
-    BANKSEL TRISC
-    MOVLW   B'00000000'
-    MOVWF   TRISC
-    BANKSEL PORTC
-    CLRF    PORTC
-    
-    BANKSEL TRISD
-    MOVLW   B'00000000'
-    MOVWF   TRISD
     BANKSEL PORTD
     CLRF    PORTD
-    
     RETURN
-;-------------------- TIMER 0 ----------------------------------------------
-CONFIG_TMR0:
+    
+;-------------------------------------------------------------------------------
+CONFIG_IO
     BANKSEL TRISA
-    BCF OPTION_REG , T0CS
-    BCF OPTION_REG , PSA
-    BSF OPTION_REG , PS2
-    BSF OPTION_REG , PS1
-    BCF OPTION_REG , PS0
- 
+    CLRF    TRISA
+    CLRF    TRISB
+    CLRF    TRISC
+    CLRF    TRISD
+    CLRF    TRISE
+    BANKSEL ANSEL
+    CLRF    ANSEL
+    CLRF    ANSELH
     BANKSEL PORTA
-    MOVLW .50
-    MOVWF TMR0
-    BCF INTCON, T0IF
+    CLRF    PORTA
+    CLRF    PORTB
+    CLRF    PORTC
+    CLRF    PORTD
+    CLRF    PORTE
+    RETURN    
+;-------------------------------------------------------------------------------
+    
+    CONFIG_ADC
+    BANKSEL PORTA
+    BCF ADCON0, ADCS1
+    BSF ADCON0, ADCS0		; FOSC/8 RELOJ TAD
+    
+    BCF ADCON0, CHS3		; CH0
+    BCF ADCON0, CHS2
+    BCF ADCON0, CHS1
+    BCF ADCON0, CHS0	
+    BANKSEL TRISA
+    BCF ADCON1, ADFM		; JUSTIFICACIÓN A LA IZQUIERDA
+    BCF ADCON1, VCFG1		; VSS COMO REFERENCIA VREF-
+    BCF ADCON1, VCFG0		; VDD COMO REFERENCIA VREF+
+    BANKSEL PORTA
+    BSF ADCON0, ADON		; ENCIENDO EL MÓDULO ADC
+    
+    BANKSEL TRISA
+    BSF	    TRISA, RA0		; RA0 COMO ENTRADA
+    BANKSEL ANSEL
+    BSF	    ANSEL, 0		; ANS0 COMO ENTRADA ANALÓGICA
+    
     RETURN
- 
-CONFIG_INTERRUPT:
-    BSF  INTCON, GIE
-    BSF  INTCON, T0IE
-    BCF  INTCON, T0IF 
-    RETURN 
-
-DELAY_1:
-    NOP
-    NOP
-    NOP
-    NOP
-    NOP
-    NOP
-    NOP
-    NOP
-    NOP
-    NOP
+;-------------------------------------------------------------------------------
+DELAY_50MS
+    MOVLW   .100		    ; 1US 
+    MOVWF   DELAY2
+    CALL    DELAY_500US
+    DECFSZ  DELAY2		    ;DECREMENTA CONT1
+    GOTO    $-2			    ; IR A LA POSICION DEL PC - 1
     RETURN
     
-END
+DELAY_500US
+    MOVLW   .250		    ; 1US 
+    MOVWF   DELAY1	    
+    DECFSZ  DELAY1		    ;DECREMENTA CONT1
+    GOTO    $-1			    ; IR A LA POSICION DEL PC - 1
+    RETURN
+    
+    END
