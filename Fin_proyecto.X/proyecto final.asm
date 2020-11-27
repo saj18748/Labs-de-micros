@@ -20,10 +20,8 @@
  __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
  
 GPR_VAR	UDATA
-    SUMA_1	RES 1
-    SUMA_2	RES 1	    ; VARIABLES DE DATOS
-    SUMA_3	RES 1
-
+   SUMA_1	RES 1
+   SUMA_2	RES 1	    ; VARIABLES DE DATOS
 	
 ;--------------------------- INICIO DEL PROGRAMA -------------------------------
 RES_VECT  CODE    0x0000            ; processor reset vector
@@ -37,6 +35,9 @@ START
     CALL    CONFIG_RELOJ	; 4 MHz
     CALL    CONFIG_TIMER2	; CONFIGURACIÓN DEL TIMER2 PARA LOS SERVOS
     CALL    CONFIG_CCP		; CCP1 Y CCP2
+    CALL    CONFIG_TMR0
+    CALL    CONFIG_INTERRUPT
+    CALL    CONFIG_EUSART
     GOTO    LOOP		
 ;-------------------------------------------------------------------------------
 
@@ -44,6 +45,11 @@ START
 LOOP
     CALL    CONFIG_ADC_DI
     CALL    MOV_SERVOS
+    
+    CALL    CONFIG_READ
+    
+    BTFSC   PORTC, RC0
+    GOTO    CONFIG_WRITE
 
     
     GOTO    LOOP
@@ -76,7 +82,6 @@ CONFIG_ADC_DI:
     BCF	    PIR1, ADIF		; BORRAMOS LA BANDERA DEL ADC 
     MOVF    ADRESH, W
     MOVWF   SUMA_2		; MUEVO EL ADRESH A SUMADOR1
-    MOVWF   PORTD
     
 MOV_SERVOS:
     ; MUEVO LA VARIABLE SERVO1 A CCPR1L
@@ -89,6 +94,61 @@ MOV_SERVOS:
     MOVWF   CCPR2L     
     CALL    DELAY_10MS
     
+CONFIG_READ:
+   
+    BSF	    PORTC, RC5
+    BCF	    STATUS, RP0
+    BSF	    STATUS, RP1
+    
+    MOVF    SUMA_1,W
+    MOVWF   EEADR
+    BSF	    STATUS, RP0
+    BCF	    EECON1, EEPGD
+    BSF	    EECON1, RD
+    BCF	    STATUS, RP0
+    MOVF    EEDATA, W
+    
+    BCF	    STATUS, RP1
+    
+    MOVWF   PORTD
+
+   RETURN
+   
+CONFIG_WRITE:
+    CALL    DELAY_1
+    
+  
+    BANKSEL EEADR
+    
+    BSF	    STATUS, RP0
+    BSF	    STATUS, RP1
+    BTFSC   EECON1, WR
+    GOTO    $-1
+    
+    BCF	    STATUS, RP0
+    MOVF    SUMA_1, W
+    MOVWF   EEADR
+    BCF	    STATUS, RP1
+    MOVF    SUMA_1, W
+    BSF	    STATUS, RP1
+    MOVWF   EEDATA
+    BSF	    STATUS, RP0
+    BCF	    EECON1, EEPGD
+    BSF	    EECON1, WREN
+    
+    MOVLW   55h		;
+    MOVWF   EECON2	;Write 55h
+    MOVLW   0xAA ;
+    MOVWF   EECON2	;Write AAh
+    
+    BSF	    EECON1, WR	;Set WR bit to begin write
+    BSF	    INTCON, GIE
+    BCF	    EECON1, WREN	;Disable writes
+    BCF	    STATUS, RP0	;Bank 0
+    BCF	    STATUS, RP1
+    
+    
+    GOTO    LOOP
 ;--------------------------------- SUBRUTINAS ----------------------------------
 DELAY_10MS:			; 10 us DE DELAY
     NOP
@@ -147,7 +207,6 @@ CONFIG_ADC3:
     BCF	    ADCON0, GO
     BSF	    ADCON0, ADON	; ADON -> 1 (ADC ACTIVADO)
     RETURN
-    
 ;-------------------------------------------------------------------------------
     
 ;------------------------------- CONFIGURACIONES -------------------------------
@@ -178,8 +237,6 @@ CONFIG_IO:
     BANKSEL PORTD
     CLRF    PORTD
     RETURN
-    
-    
 
 CONFIG_RELOJ:
     ; PROGRAMAMOS EL OSCILADOR
@@ -226,8 +283,64 @@ CONFIG_CCP:
     ; LIMPIO EL PUERTO C
     CLRF    PORTC
     RETURN
+    
+CONFIG_TMR0:
+    BANKSEL TRISA
+    BCF OPTION_REG , T0CS
+    BCF OPTION_REG , PSA
+    BSF OPTION_REG , PS2
+    BSF OPTION_REG , PS1
+    BCF OPTION_REG , PS0
+ 
+    BANKSEL PORTA
+    MOVLW .50
+    MOVWF TMR0
+    BCF INTCON, T0IF
+    RETURN
+    
+CONFIG_EUSART:
+   BANKSEL  TXSTA
+   BCF	    TXSTA,	SYNC	;MODO ASINCRÓNO
+   BSF	    TXSTA,	TXEN	;HABILITO LA COMUNICACIÓN
+   BCF	    TXSTA,	BRGH	;BAUDRATE
+   
+   ;BAUDRATE 9600
+   BSF	    BAUDCTL,	BRG16	;BAUDRATE
+   MOVLW    .25			;BAUDRATE
+   MOVWF    SPBRG		;BAUDRATE
+   
+   BANKSEL  RCSTA
+   BSF	    RCSTA,	SPEN	;HABILITO EL MÓDULO TX COMO SALIDA 
+
+   BANKSEL  BAUDCTL
+   BSF	    BAUDCTL,	BRG16	;BAUDRATE
+ 
+   ;BANKSEL  PIE1
+   ;BSF	    PIE1,	TXIE
+   RETURN 
 ;-------------------------------------------------------------------------------
     
+CONFIG_INTERRUPT:
+    BSF  INTCON, GIE
+    BSF  INTCON, T0IE
+    BCF  INTCON, T0IF 
+    RETURN 
+
+DELAY_1:
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    RETURN
+    
     END
+    
+    
     
     

@@ -60,7 +60,6 @@ START
     
 LOOP
     
-    
     CALL    ADC_INICIO
     CALL    CONFIG_READ
     
@@ -140,8 +139,6 @@ CONFIG_READ:
     MOVWF   PORTD
 
    RETURN
-    
- 
     
 ; ------------- CONFIGURACION IO --------------------------------------------
   

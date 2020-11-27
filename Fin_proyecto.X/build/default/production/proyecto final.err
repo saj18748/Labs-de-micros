@@ -1,24 +1,47 @@
 Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 23 : Found label after column 1. (SUMA_1)
 Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 24 : Found label after column 1. (SUMA_2)
-Warning[207] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 25 : Found label after column 1. (SUMA_3)
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 104 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 106 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 107 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 109 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 124 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 139 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 157 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 158 : Using default destination of 1 (file).
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 158 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 160 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 161 : Using default destination of 1 (file).
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 161 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 162 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 171 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 177 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 188 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 189 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 190 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 191 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 192 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 193 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 194 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 196 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 211 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 125 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 130 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 134 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 136 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 137 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 140 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 142 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 144 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 146 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 169 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 184 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 199 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 216 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 217 : Using default destination of 1 (file).
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 217 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 219 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 220 : Using default destination of 1 (file).
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 220 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 221 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 230 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 236 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 245 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 246 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 247 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 248 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 249 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 250 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 251 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 253 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 268 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 289 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 290 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 291 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 292 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 293 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 303 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 304 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 305 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 308 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 310 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] D:\UVG\TERCER AÒO\SEGUNDO SEMESTRE\PROGRA DE MICROS\MPLAB\LABS-DE-MICROS\FIN_PROYECTO.X\PROYECTO FINAL.ASM 316 : Register in operand not in bank 0.  Ensure that bank bits are correct.
