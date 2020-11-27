@@ -1,49 +1,47 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Wed Nov 18 12:04:19 2020
+Linker Map File - Created Thu Nov 26 23:20:35 2020
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                  RES_VECT       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
-                MAIN_PROG       code   0x000003    program   0x0000d2
+                MAIN_PROG       code   0x000003    program   0x00013a
 .config_2007_BUILD/DEFAULT/PRODUCTION/PROYECT       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/PROYECT       code   0x002008    program   0x000002
-                  GPR_VAR      udata   0x000020       data   0x000004
+                  GPR_VAR      udata   0x000020       data   0x000003
 
 
 
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x00006b      
+                            0x000000    0x00009f      
                             0x002007    0x002008      
-            110 out of 8455 program addresses used, program memory utilization is 1%
+            162 out of 8455 program addresses used, program memory utilization is 1%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                 CHECK_AD   0x00000b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               CHECK_RCIF   0x000010    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               CHECK_TXIF   0x000014    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               CONFIG_ADC   0x00004a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                CONFIG_IO   0x000037    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-             CONFIG_RELOJ   0x000019    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-             CONFIG_TX_RX   0x00001f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-              DELAY_500US   0x000067    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               DELAY_50MS   0x000061    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                     LOOP   0x000009    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+              CONFIG_ADC1   0x000034    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+              CONFIG_ADC2   0x000043    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+              CONFIG_ADC3   0x000052    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+            CONFIG_ADC_DI   0x00000b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+               CONFIG_CCP   0x000098    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                CONFIG_IO   0x000061    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+             CONFIG_RELOJ   0x000080    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+            CONFIG_TIMER2   0x00008c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+               DELAY_10MS   0x000029    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                     LOOP   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+               MOV_SERVOS   0x000023    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
                     START   0x000003    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0009   0x00000c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0014   0x000017    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0062   0x000065    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0067   0x00006a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                   DELAY1   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                   DELAY2   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-              STATUS_TEMP   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                   W_TEMP   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+          _MAIN_PROG_000F   0x000012    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+          _MAIN_PROG_001B   0x00001e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                   SUMA_1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                   SUMA_2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                   SUMA_3   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
 
 
 
@@ -51,23 +49,21 @@ Linker Map File - Created Wed Nov 18 12:04:19 2020
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                     START   0x000003    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                     LOOP   0x000009    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                 CHECK_AD   0x00000b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0009   0x00000c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               CHECK_RCIF   0x000010    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               CHECK_TXIF   0x000014    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0014   0x000017    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-             CONFIG_RELOJ   0x000019    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-             CONFIG_TX_RX   0x00001f    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                CONFIG_IO   0x000037    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               CONFIG_ADC   0x00004a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-               DELAY_50MS   0x000061    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0062   0x000065    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-              DELAY_500US   0x000067    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-          _MAIN_PROG_0067   0x00006a    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                   W_TEMP   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-              STATUS_TEMP   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                   DELAY1   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
-                   DELAY2   0x000023       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                     LOOP   0x000008    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+            CONFIG_ADC_DI   0x00000b    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+          _MAIN_PROG_000F   0x000012    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+          _MAIN_PROG_001B   0x00001e    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+               MOV_SERVOS   0x000023    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+               DELAY_10MS   0x000029    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+              CONFIG_ADC1   0x000034    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+              CONFIG_ADC2   0x000043    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+              CONFIG_ADC3   0x000052    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                CONFIG_IO   0x000061    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+             CONFIG_RELOJ   0x000080    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+            CONFIG_TIMER2   0x00008c    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+               CONFIG_CCP   0x000098    program     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                   SUMA_1   0x000020       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                   SUMA_2   0x000021       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
+                   SUMA_3   0x000022       data     static D:\UVG\Tercer año\Segundo semestre\Progra de micros\MPLAB\Labs-de-micros\Fin_proyecto.X\proyecto final.asm
 
 
